@@ -1,7 +1,7 @@
 function Home() {
-  return <main className="h-full mt-16 flex justify-center items-center">
+  return <div className="biosinger-home h-full flex justify-center items-center">
       <span className="text-6xl">Bio Singer</span>
-    </main>
+    </div>
 }
 
 export default Home

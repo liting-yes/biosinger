@@ -17,6 +17,7 @@
     "react-router-dom": "^6.7.0"
   },
   "devDependencies": {
+    "@ant-design/icons": "^5.0.0",
     "@antfu/eslint-config-react": "^0.34.1",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
