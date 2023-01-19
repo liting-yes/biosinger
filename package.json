@@ -1,13 +1,15 @@
 {
   "name": "biosinger",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "lint": "eslint .",
+    "format": "eslint --fix ."
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -15,7 +17,7 @@
     "react-router-dom": "^6.7.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.34.1",
+    "@antfu/eslint-config-react": "^0.34.1",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
     "@commitlint/cz-commitlint": "^17.4.2",

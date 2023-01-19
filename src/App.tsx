@@ -8,7 +8,7 @@ function App() {
     <div className="biosinger w-full min-w-256 h-screen">
       <BiosingerHeader></BiosingerHeader>
       <Routes>
-        <Route index path='/' element={<Home />}></Route>
+        <Route index path="/" element={<Home />}></Route>
       </Routes>
       <main>
         <Outlet></Outlet>
