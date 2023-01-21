@@ -1,6 +1,7 @@
 import { message } from 'antd'
 import Axios from 'axios'
 import { makeUseAxios } from 'axios-hooks'
+import { useState } from 'react'
 
 const ESOECIES_API = 'http://www.sp2000.org.cn/api'
 
@@ -11,7 +12,8 @@ const request = makeUseAxios({
 })
 
 // http://col.especies.cn/api/document
-export function useEspecies(apiKey: string) {
+export function useEspecies(initApikey: string) {
+  const [apiKey, setApiKey] = useState(initApikey)
   if (!apiKey)
     message.error('物种多样性数据平台接口密钥为空')
 
@@ -102,6 +104,8 @@ export function useEspecies(apiKey: string) {
   }
 
   return {
+    apiKey,
+    setApiKey,
     useEspeciesQueryFidsByFamilyName,
     useEspeciesQueryTaxonIdsByFamilyId,
     useEspeciesQueryTaxonIdsByScientificName,
