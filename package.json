@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "commit": "git-cz",
     "lint": "eslint .",
-    "format": "eslint --fix ."
+    "format": "eslint --fix .",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "axios": "0.27",
