@@ -14,7 +14,7 @@ export function useApikey(name: string) {
   const [open, setOpen] = useState(false)
 
   function ApikeyInputModal() {
-    return (<Modal open={open} closable={false} destroyOnClose={true} keyboard={false} title={`请输入${localStorageKey}`} footer={ <Button type="primary" disabled={!apikey} onClick={() => setOpen(false)}>确认</Button>}>
+    return (<Modal className="useApikey__inputModal" open={open} closable={false} destroyOnClose={true} keyboard={false} title={`请输入${localStorageKey}`} footer={ <Button type="primary" disabled={!apikey} onClick={() => setOpen(false)}>确认</Button>}>
       <Input.Password
         value={apikey}
         placeholder="在此输入对应的 api key"
