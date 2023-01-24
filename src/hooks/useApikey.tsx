@@ -24,5 +24,12 @@ export function useApikey(name: string) {
     </Modal>)
   }
 
-  return { apikey, setApikey, ApikeyInputModal, open, setOpen }
+  function ApikeyDisplay() {
+    return <div className="useApikey__display flex flex-row gap-4">
+      <Input.Password value={apikey}></Input.Password>
+      <Button type="primary" onClick={() => setOpen(true)}>编辑</Button>
+    </div>
+  }
+
+  return { apikey, setApikey, ApikeyInputModal, ApikeyDisplay, open, setOpen }
 }
