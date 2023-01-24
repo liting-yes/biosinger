@@ -36,7 +36,7 @@ function Header() {
     <div className="flex flex-row items-center gap-4">
       <Menu mode="horizontal" items={items} onClick={handleClickMenu} selectable={false} style={{ border: 'none', background: 'transparent' }} />
      <a href="https://github.com/liting-yes/biosinger.git" target="_blank" rel="noreferrer">
-      <div className="i-mdi:github w-8 h-8"/>
+      <div className="i-mdi:github w-8 h-8 bg-slate-900"/>
      </a>
     </div>
   </header>

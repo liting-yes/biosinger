@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="biosinger w-full min-w-256 h-screen">
       <BiosingerHeader></BiosingerHeader>
-      <main className="h-full mt-16">
+      <main className="h-full pt-16">
         <Routes>
           <Route index path="/" element={<Home />}></Route>
           <Route path="search" element={<Search />}>

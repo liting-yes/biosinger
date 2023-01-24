@@ -12,7 +12,6 @@ specifiers:
   '@types/react-dom': ^18.0.9
   '@unocss/preset-icons': ^0.48.4
   '@unocss/preset-uno': ^0.48.4
-  '@unocss/reset': ^0.48.4
   '@unocss/vite': ^0.48.4
   '@vitejs/plugin-react-swc': ^3.0.0
   ahooks: ^3.7.4
@@ -51,7 +50,6 @@ devDependencies:
   '@types/react-dom': 18.0.10
   '@unocss/preset-icons': 0.48.4
   '@unocss/preset-uno': 0.48.4
-  '@unocss/reset': 0.48.4
   '@unocss/vite': 0.48.4_vite@4.0.4
   '@vitejs/plugin-react-swc': 3.0.1_vite@4.0.4
   antd: 5.1.5_biqbaboplfbrettd7655fr4n2y
@@ -1224,10 +1222,6 @@ packages:
     dependencies:
       '@unocss/core': 0.48.4
       '@unocss/preset-mini': 0.48.4
-    dev: true
-
-  /@unocss/reset/0.48.4:
-    resolution: {integrity: sha512-9WPoGwLrG5vZQzMxgd7/zJkUUmL06WYtrAiRdf5gYsCBbnpx6eq0II0TvU8PEzvseqgkhEpN19iSgnsuTZ34kA==}
     dev: true
 
   /@unocss/scope/0.48.4:
