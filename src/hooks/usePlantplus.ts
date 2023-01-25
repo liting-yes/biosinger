@@ -12,32 +12,32 @@ const request = makeUseAxios({
 })
 
 // http://col.especies.cn/api/document
-export function useEspecies(initApikey: string) {
+export function usePlantplus(initApikey: string) {
   const [apiKey, setApiKey] = useState(initApikey)
   if (!apiKey)
-    message.error('物种多样性数据平台接口密钥为空')
+    message.error('物种多样性数据平台接口密钥为空').then(() => {}, () => {})
 
-  const useEspeciesQueryFidsByFamilyName = (familyName: string) => {
+  const usePlantplusQueryFidsByFamilyName = (familyName: string) => {
     return request(`/family/familyName/familyID/${familyName}/${apiKey}`)
   }
 
-  const useEspeciesQueryTaxonIdsByFamilyId = (familyId: string) => {
+  const usePlantplusQueryTaxonIdsByFamilyId = (familyId: string) => {
     return request(`/taxon/familyID/taxonID/${familyId}/${apiKey}`)
   }
 
-  const useEspeciesQueryTaxonIdsByScientificName = (scientificName: string) => {
+  const usePlantplusQueryTaxonIdsByScientificName = (scientificName: string) => {
     return request(`/taxon/scientificName/taxonID/${scientificName}/${apiKey}`)
   }
 
-  const useEspeciesQueryTaxonIdsByCommonName = (commonName: string) => {
+  const usePlantplusQueryTaxonIdsByCommonName = (commonName: string) => {
     return request(`/taxon/commonName/taxonID/${commonName}/${apiKey}`)
   }
 
-  const useEspeciesQueryInfoByTaxonID = (taxonID: string) => {
+  const usePlantplusQueryInfoByTaxonID = (taxonID: string) => {
     return request(`/taxon/species/taxonID/${taxonID}/${apiKey}`)
   }
 
-  const useEspeciesQueryFamiliesByFamilyName = (familyName: string, page: number) => {
+  const usePlantplusQueryFamiliesByFamilyName = (familyName: string, page: number) => {
     return request({
       url: '/v2/getFamiliesByFamilyName',
       params: {
@@ -48,7 +48,7 @@ export function useEspecies(initApikey: string) {
     })
   }
 
-  const useEspeciesQuerySpeciesByFamilyId = (familyId: string, page: number) => {
+  const usePlantplusQuerySpeciesByFamilyId = (familyId: string, page: number) => {
     return request({
       url: '/v2/getSpeciesByFamilyId',
       params: {
@@ -59,7 +59,7 @@ export function useEspecies(initApikey: string) {
     })
   }
 
-  const useEspeciesQuerySpeciesByScientificName = (scientificName: string, page: number) => {
+  const usePlantplusQuerySpeciesByScientificName = (scientificName: string, page: number) => {
     return request({
       url: '/v2/getSpeciesByScientificName',
       params: {
@@ -70,7 +70,7 @@ export function useEspecies(initApikey: string) {
     })
   }
 
-  const useEspeciesQuerySpeciesByCommonName = (commonName: string, page: number) => {
+  const usePlantplusQuerySpeciesByCommonName = (commonName: string, page: number) => {
     return request({
       url: '/v2/getSpeciesByCommonName',
       params: {
@@ -81,7 +81,7 @@ export function useEspecies(initApikey: string) {
     })
   }
 
-  const useEspeciesQuerySpeciesByNameCode = (nameCode: string, page: number) => {
+  const usePlantplusQuerySpeciesByNameCode = (nameCode: string, page: number) => {
     return request({
       url: '/v2/getSpeciesByNameCode',
       params: {
@@ -92,7 +92,7 @@ export function useEspecies(initApikey: string) {
     })
   }
 
-  const useEspeciesQueryNameByKeyword = (keyword: string, page: number) => {
+  const usePlantplusQueryNameByKeyword = (keyword: string, page: number) => {
     return request({
       url: '/v2/getNameByKeyword',
       params: {
@@ -106,16 +106,16 @@ export function useEspecies(initApikey: string) {
   return {
     apiKey,
     setApiKey,
-    useEspeciesQueryFidsByFamilyName,
-    useEspeciesQueryTaxonIdsByFamilyId,
-    useEspeciesQueryTaxonIdsByScientificName,
-    useEspeciesQueryTaxonIdsByCommonName,
-    useEspeciesQueryInfoByTaxonID,
-    useEspeciesQueryFamiliesByFamilyName,
-    useEspeciesQuerySpeciesByFamilyId,
-    useEspeciesQuerySpeciesByScientificName,
-    useEspeciesQuerySpeciesByCommonName,
-    useEspeciesQuerySpeciesByNameCode,
-    useEspeciesQueryNameByKeyword,
+    usePlantplusQueryFidsByFamilyName,
+    usePlantplusQueryTaxonIdsByFamilyId,
+    usePlantplusQueryTaxonIdsByScientificName,
+    usePlantplusQueryTaxonIdsByCommonName,
+    usePlantplusQueryInfoByTaxonID,
+    usePlantplusQueryFamiliesByFamilyName,
+    usePlantplusQuerySpeciesByFamilyId,
+    usePlantplusQuerySpeciesByScientificName,
+    usePlantplusQuerySpeciesByCommonName,
+    usePlantplusQuerySpeciesByNameCode,
+    usePlantplusQueryNameByKeyword,
   }
 }
