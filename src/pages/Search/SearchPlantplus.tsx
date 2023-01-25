@@ -7,7 +7,7 @@ function SearchPlantplus() {
   useEffect(() => {
     if (!apikey && !open)
       setOpen(true)
-  }, [open])
+  }, [apikey, open, setOpen])
   return <div className="search-plantplus flex flex-col items-center">
     <SearchInput />
     <ApikeyInputModal />
