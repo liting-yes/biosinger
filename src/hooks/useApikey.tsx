@@ -10,16 +10,22 @@ export function useApikey(name: string) {
   const [apikey, setApikey] = useLocalStorageState<string | undefined>(localStorageKey, {
     defaultValue: '',
   })
-
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(!apikey)
 
   function ApikeyInputModal() {
-    return (<Modal className="useApikey__inputModal" open={open} closable={false} destroyOnClose={true} keyboard={false} title={`请输入${localStorageKey}`} footer={ <Button type="primary" disabled={!apikey} onClick={() => setOpen(false)}>确认</Button>}>
+    const [apikeyMeno, setApikeyMeno] = useState(apikey)
+    const onOk = () => {
+      setApikey(apikeyMeno)
+      setOpen(false)
+    }
+
+    return (<Modal className="useApikey__inputModal" open={open} closable={false} destroyOnClose={true} keyboard={false} title={`请输入${localStorageKey}`} footer={ <Button type="primary" disabled={!apikeyMeno} onClick={onOk}>确认</Button>}>
       <Input.Password
-        value={apikey}
+        value={apikeyMeno}
         placeholder="在此输入对应的 api key"
         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-        onChange={e => setApikey(e.target.value)}
+        onChange={e => setApikeyMeno(e.target.value)}
+        onPressEnter={apikeyMeno ? onOk : undefined }
       />
     </Modal>)
   }
