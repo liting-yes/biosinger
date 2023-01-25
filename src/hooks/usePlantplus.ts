@@ -81,24 +81,22 @@ export function usePlantplus(initApikey: string) {
     })
   }
 
-  const usePlantplusQuerySpeciesByNameCode = (nameCode: string, page: number) => {
+  const usePlantplusQuerySpeciesByNameCode = (nameCode: string) => {
     return request({
       url: '/v2/getSpeciesByNameCode',
       params: {
         nameCode,
         apiKey,
-        page,
       },
     })
   }
 
-  const usePlantplusQueryNameByKeyword = (keyword: string, page: number) => {
+  const usePlantplusQueryNameByKeyword = (keyword: string) => {
     return request({
       url: '/v2/getNameByKeyword',
       params: {
         keyword,
         apiKey,
-        page,
       },
     })
   }
