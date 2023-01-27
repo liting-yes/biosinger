@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import SearchInput from '../../components/SearchInput/SearchInput'
+import { AutoComplete, Input } from 'antd'
+import { SearchOutlined } from '@ant-design/icons'
 import { useApikey } from '../../hooks/useApikey'
 
 function SearchPlantplus() {
@@ -9,7 +10,9 @@ function SearchPlantplus() {
       setOpen(true)
   }, [apikey, open, setOpen])
   return <div className="search-plantplus flex flex-col items-center">
-    <SearchInput />
+    <AutoComplete className="w-full" allowClear>
+      <Input size="large" prefix={<SearchOutlined className="text-xl text-slate-400 flex justify-center items-center" />} />
+    </AutoComplete>
     <ApikeyInputModal />
   </div>
 }
