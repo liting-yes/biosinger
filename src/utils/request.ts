@@ -8,13 +8,11 @@ Axios.defaults.validateStatus = (status) => {
 
 const defaultInstance = Axios.create()
 
-type UseAxiosOptions = string | AxiosRequestConfig
-interface UseAxiosConfig {
+export type UseAxiosOptions = string | AxiosRequestConfig
+export interface UseAxiosConfig {
   instance?: AxiosInstance
 }
-const useAxios = (options: UseAxiosOptions, config: UseAxiosConfig) => {
+export const request = (options: UseAxiosOptions, config: UseAxiosConfig) => {
   const instance = config.instance ?? defaultInstance
   return typeof options === 'string' ? instance.get(options) : instance(options)
 }
-
-export default useAxios
