@@ -1,6 +1,7 @@
 import { message } from 'antd'
 import Axios from 'axios'
 import { makeUseAxios } from 'axios-hooks'
+import type { Options } from 'axios-hooks'
 import { useState } from 'react'
 
 const ESOECIES_API = 'http://www.sp2000.org.cn/api'
@@ -17,27 +18,27 @@ export function usePlantplus(initApikey: string) {
   if (!apiKey)
     message.error('物种多样性数据平台接口密钥为空').then(() => {}, () => {})
 
-  const usePlantplusQueryFidsByFamilyName = (familyName: string) => {
-    return request(`/family/familyName/familyID/${familyName}/${apiKey}`)
+  const usePlantplusQueryFidsByFamilyName = (familyName: string, options?: Options) => {
+    return request(`/family/familyName/familyID/${familyName}/${apiKey}`, options)
   }
 
-  const usePlantplusQueryTaxonIdsByFamilyId = (familyId: string) => {
-    return request(`/taxon/familyID/taxonID/${familyId}/${apiKey}`)
+  const usePlantplusQueryTaxonIdsByFamilyId = (familyId: string, options?: Options) => {
+    return request(`/taxon/familyID/taxonID/${familyId}/${apiKey}`, options)
   }
 
-  const usePlantplusQueryTaxonIdsByScientificName = (scientificName: string) => {
-    return request(`/taxon/scientificName/taxonID/${scientificName}/${apiKey}`)
+  const usePlantplusQueryTaxonIdsByScientificName = (scientificName: string, options?: Options) => {
+    return request(`/taxon/scientificName/taxonID/${scientificName}/${apiKey}`, options)
   }
 
-  const usePlantplusQueryTaxonIdsByCommonName = (commonName: string) => {
-    return request(`/taxon/commonName/taxonID/${commonName}/${apiKey}`)
+  const usePlantplusQueryTaxonIdsByCommonName = (commonName: string, options?: Options) => {
+    return request(`/taxon/commonName/taxonID/${commonName}/${apiKey}`, options)
   }
 
-  const usePlantplusQueryInfoByTaxonID = (taxonID: string) => {
-    return request(`/taxon/species/taxonID/${taxonID}/${apiKey}`)
+  const usePlantplusQueryInfoByTaxonID = (taxonID: string, options?: Options) => {
+    return request(`/taxon/species/taxonID/${taxonID}/${apiKey}`, options)
   }
 
-  const usePlantplusQueryFamiliesByFamilyName = (familyName: string, page: number) => {
+  const usePlantplusQueryFamiliesByFamilyName = (familyName: string, page: number, options?: Options) => {
     return request({
       url: '/v2/getFamiliesByFamilyName',
       params: {
@@ -45,10 +46,10 @@ export function usePlantplus(initApikey: string) {
         apiKey,
         page,
       },
-    })
+    }, options)
   }
 
-  const usePlantplusQuerySpeciesByFamilyId = (familyId: string, page: number) => {
+  const usePlantplusQuerySpeciesByFamilyId = (familyId: string, page: number, options?: Options) => {
     return request({
       url: '/v2/getSpeciesByFamilyId',
       params: {
@@ -56,10 +57,10 @@ export function usePlantplus(initApikey: string) {
         apiKey,
         page,
       },
-    })
+    }, options)
   }
 
-  const usePlantplusQuerySpeciesByScientificName = (scientificName: string, page: number) => {
+  const usePlantplusQuerySpeciesByScientificName = (scientificName: string, page: number, options?: Options) => {
     return request({
       url: '/v2/getSpeciesByScientificName',
       params: {
@@ -67,10 +68,10 @@ export function usePlantplus(initApikey: string) {
         apiKey,
         page,
       },
-    })
+    }, options)
   }
 
-  const usePlantplusQuerySpeciesByCommonName = (commonName: string, page: number) => {
+  const usePlantplusQuerySpeciesByCommonName = (commonName: string, page: number, options?: Options) => {
     return request({
       url: '/v2/getSpeciesByCommonName',
       params: {
@@ -78,27 +79,27 @@ export function usePlantplus(initApikey: string) {
         apiKey,
         page,
       },
-    })
+    }, options)
   }
 
-  const usePlantplusQuerySpeciesByNameCode = (nameCode: string) => {
+  const usePlantplusQuerySpeciesByNameCode = (nameCode: string, options?: Options) => {
     return request({
       url: '/v2/getSpeciesByNameCode',
       params: {
         nameCode,
         apiKey,
       },
-    })
+    }, options)
   }
 
-  const usePlantplusQueryNameByKeyword = (keyword: string) => {
+  const usePlantplusQueryNameByKeyword = (keyword: string, options?: Options) => {
     return request({
       url: '/v2/getNameByKeyword',
       params: {
         keyword,
         apiKey,
       },
-    })
+    }, options)
   }
 
   return {
