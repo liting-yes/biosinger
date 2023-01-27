@@ -16,7 +16,7 @@ specifiers:
   '@vitejs/plugin-react-swc': ^3.0.0
   ahooks: ^3.7.4
   antd: ^5.1.5
-  axios: '0.27'
+  axios: ^1.2.5
   axios-hooks: ^4.0.0
   commitizen: ^4.2.6
   eslint: ^8.32.0
@@ -32,8 +32,8 @@ specifiers:
 
 dependencies:
   ahooks: 3.7.4_react@18.2.0
-  axios: 0.27.2
-  axios-hooks: 4.0.0_axios@0.27.2+react@18.2.0
+  axios: 1.2.5
+  axios-hooks: 4.0.0_axios@1.2.5+react@18.2.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-router-dom: 6.7.0_biqbaboplfbrettd7655fr4n2y
@@ -1533,24 +1533,25 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /axios-hooks/4.0.0_axios@0.27.2+react@18.2.0:
+  /axios-hooks/4.0.0_axios@1.2.5+react@18.2.0:
     resolution: {integrity: sha512-IYpVCh/3I99KA826+Qtms581EegvlUVzDkhljglo21Ugc6P9lQQVG6q22seZy0ieYuepjS3kvCtzUG7jAX7BTA==}
     peerDependencies:
       axios: '>=0.24.0'
       react: ^16.8.0-0 || ^17.0.0 || ^18.0.0
     dependencies:
       '@babel/runtime': 7.19.0
-      axios: 0.27.2
+      axios: 1.2.5
       dequal: 2.0.3
       lru-cache: 7.14.1
       react: 18.2.0
     dev: false
 
-  /axios/0.27.2:
-    resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
+  /axios/1.2.5:
+    resolution: {integrity: sha512-9pU/8mmjSSOb4CXVsvGIevN+MlO/t9OWtKadTaLuN85Gge3HGorUckgp8A/2FH4V4hJ7JuQ3LIeI7KAV9ITZrQ==}
     dependencies:
       follow-redirects: 1.15.2
       form-data: 4.0.0
+      proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
     dev: false
@@ -4149,6 +4150,10 @@ packages:
       object-assign: 4.1.1
       react-is: 16.13.1
     dev: true
+
+  /proxy-from-env/1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
+    dev: false
 
   /punycode/2.2.0:
     resolution: {integrity: sha512-LN6QV1IJ9ZhxWTNdktaPClrNfp8xdSAYS0Zk2ddX7XsXZAxckMHPCBcHRo0cTcEIgYPRiGEkmji3Idkh2yFtYw==}
