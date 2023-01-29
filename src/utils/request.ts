@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 
-Axios.defaults.timeout = 5000
+Axios.defaults.timeout = 5 * 1000
 Axios.defaults.validateStatus = (status) => {
   return status >= 100 && status < 600
 }

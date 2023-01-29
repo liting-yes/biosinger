@@ -3,13 +3,19 @@ import { request } from '../utils'
 import type { UseAxiosOptions } from '../utils'
 
 const instance = Axios.create({
-  baseURL: 'http://www.sp2000.org.cn',
+  baseURL: 'https://api.liting.ink/proxy/sp2000',
 })
 
 const request_ = (options: UseAxiosOptions) => {
   return request(options, {
     instance,
   })
+}
+
+export interface QueryPlantPlusResponse {
+  code: number
+  message: string
+  data: any
 }
 
 export const queryFamiliesByFamilyName = (params: { familyName: string; page: number; apiKey: string }) => {
@@ -34,4 +40,22 @@ export const querySpeciesByNameCode = (params: { nameCode: string; apiKey: strin
 
 export const queryNameByKeyword = (params: { keyword: string; apiKey: string }) => {
   return request_({ url: '/v2/getNameByKeyword', params })
+}
+export interface QueryNameByKeywordDataName {
+  hierarchyCode: string
+  name: string
+  nameCode: string
+  name_c: string
+  name_py: string
+  parentId: string
+  pyabbr: string
+  rank: string
+  taxongroup: string
+}
+
+export interface QueryNameByKeywordData {
+  count: number
+  limit: number
+  page: number
+  names: QueryNameByKeywordDataName[]
 }
