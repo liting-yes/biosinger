@@ -4,12 +4,12 @@ import { useDebounceEffect } from 'ahooks'
 import { Card, Collapse, message, theme } from 'antd'
 import { CaretRightOutlined } from '@ant-design/icons'
 import { querySpeciesByNameCode } from '../api'
-import type { QueryPlantPlusResponse, QuerySpeciesByNameCodeData } from '../api'
+import type { QuerySp2000Response, QuerySpeciesByNameCodeData } from '../api'
 import { useApikey } from '../hooks/useApikey'
 
 function Info() {
   const { nameCode } = useParams()
-  const { apikey } = useApikey('plantplus')
+  const { apikey } = useApikey('sp2000')
   const [info, setInfo] = useState<QuerySpeciesByNameCodeData>()
 
   const [messageApi] = message.useMessage()
@@ -17,7 +17,7 @@ function Info() {
   useDebounceEffect(() => {
     const refresh = async () => {
       const res = await querySpeciesByNameCode({ apiKey: apikey!, nameCode: nameCode! })
-      const { code, data, message } = res.data as QueryPlantPlusResponse
+      const { code, data, message } = res.data as QuerySp2000Response
       if (code !== 200) {
         await messageApi.error(message)
         return

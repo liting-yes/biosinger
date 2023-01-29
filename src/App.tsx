@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import BiosingerHeader from './components/Header/Header'
 import Home from './pages/Home'
 import Search from './pages/Search/Search'
-import SearchPlantplus from './pages/Search/SearchPlantplus'
+import SearchSp2000 from './pages/Search/SearchSp2000'
 import Info from './pages/Info'
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route index path="/" element={<Home />}></Route>
           <Route path="search" element={<Search />}>
-            <Route path="plantplus" element={< SearchPlantplus />}></Route>
+            <Route path="sp2000" element={< SearchSp2000 />}></Route>
           </Route>
           <Route path="info/:nameCode" element={<Info />}>
           </Route>

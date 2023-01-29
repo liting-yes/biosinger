@@ -12,7 +12,7 @@ const request_ = (options: UseAxiosOptions) => {
   })
 }
 
-export interface QueryPlantPlusResponse {
+export interface QuerySp2000Response {
   code: number
   message: string
   data: any

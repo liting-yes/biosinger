@@ -9,14 +9,8 @@ const items: MenuProps['items'] = [{
   key: 'search',
   icon: <SearchOutlined />,
   children: [{
-    type: 'group',
-    label: '植物',
-    children: [
-      {
-        label: '植物科学数据中心',
-        key: 'plantplus',
-      },
-    ],
+    label: '物种2000中国节点',
+    key: 'sp2000',
   }],
 }]
 
