@@ -4,6 +4,7 @@ import BiosingerHeader from './components/Header/Header'
 import Home from './pages/Home'
 import Search from './pages/Search/Search'
 import SearchPlantplus from './pages/Search/SearchPlantplus'
+import Info from './pages/Info'
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
           <Route index path="/" element={<Home />}></Route>
           <Route path="search" element={<Search />}>
             <Route path="plantplus" element={< SearchPlantplus />}></Route>
+          </Route>
+          <Route path="info/:nameCode" element={<Info />}>
           </Route>
         </Routes>
       </main>

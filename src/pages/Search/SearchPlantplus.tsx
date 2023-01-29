@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { AutoComplete, Input, message } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import { useDebounceFn } from 'ahooks'
+import { useNavigate } from 'react-router-dom'
 import { useApikey } from '../../hooks/useApikey'
 import { queryNameByKeyword } from '../../api'
 import type { QueryNameByKeywordData, QueryPlantPlusResponse } from '../../api'
@@ -34,8 +35,13 @@ function SearchPlantplus() {
       setOptions([{ label: '查无数据', value: 'null' }])
   })
 
+  const navigate = useNavigate()
+  const onSelect = (value: string) => {
+    navigate(`/info/${value}`)
+  }
+
   return <div className="search-plantplus flex flex-col items-center">
-    <AutoComplete className="w-full" options={options} allowClear onSearch={onSearch}>
+    <AutoComplete className="w-full" options={options} allowClear onSearch={onSearch} onSelect={onSelect}>
       <Input value={keyword} size="large" prefix={<SearchOutlined className="text-xl text-slate-400 flex justify-center items-center" />} onChange={e => setkeyword(e.target.value)} />
     </AutoComplete>
     <ApikeyInputModal />
