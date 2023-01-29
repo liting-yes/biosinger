@@ -27,7 +27,7 @@ function SearchPlantplus() {
       await messageApi.error(message)
       return
     }
-    const list: { value: string; label: string }[] = (data as QueryNameByKeywordData).names.map(name => ({ label: name.name_c, value: name.nameCode }))
+    const list: { value: string; label: string }[] = (data as QueryNameByKeywordData).names?.map(name => ({ label: name.name_c, value: name.nameCode })) ?? []
 
     if (list.length)
       setOptions(list)
