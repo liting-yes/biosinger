@@ -18,13 +18,11 @@ function SearchSp2000() {
 
   const [options, setOptions] = useState<{ value: string; label: string }[]>([])
 
-  const [messageApi] = message.useMessage()
-
   const { run: onSearch } = useDebounceFn(async () => {
     const res = await queryNameByKeyword({ keyword, apiKey: apikey! })
-    const { code, data, message } = res.data as QuerySp2000Response
+    const { code, data, message: msg } = res.data as QuerySp2000Response
     if (code !== 200) {
-      await messageApi.error(message)
+      message.error(msg)
       return
     }
     const list: { value: string; label: string }[] = (data as QueryNameByKeywordData).names?.map(name => ({ label: name.name_c, value: name.nameCode })) ?? []

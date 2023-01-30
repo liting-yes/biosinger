@@ -12,14 +12,12 @@ function Info() {
   const { apikey } = useApikey('sp2000')
   const [info, setInfo] = useState<QuerySpeciesByNameCodeData>()
 
-  const [messageApi] = message.useMessage()
-
   useDebounceEffect(() => {
     const refresh = async () => {
       const res = await querySpeciesByNameCode({ apiKey: apikey!, nameCode: nameCode! })
-      const { code, data, message } = res.data as QuerySp2000Response
+      const { code, data, message: msg } = res.data as QuerySp2000Response
       if (code !== 200) {
-        await messageApi.error(message)
+        message.error(msg)
         return
       }
       setInfo(data as QuerySpeciesByNameCodeData)
