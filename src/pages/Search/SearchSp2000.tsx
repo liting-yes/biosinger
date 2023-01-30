@@ -44,7 +44,7 @@ function SearchSp2000() {
     <AutoComplete className="w-full" options={options} allowClear onSearch={onSearch} onSelect={onSelect}>
       <Input value={keyword} size="large" prefix={<SearchOutlined className="text-xl text-slate-400 flex justify-center items-center" />} onChange={e => setkeyword(e.target.value)} />
     </AutoComplete>
-    <ApikeyInputModal />
+    <ApikeyInputModal tooltip="搜索需要携带key，详情请查看 http://www.sp2000.org.cn/api/document" />
   </div>
 }
 
