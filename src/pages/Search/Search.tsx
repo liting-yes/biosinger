@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom'
 
 function Search() {
-  return <div className="biosinger-search px-32 py-16">
+  return <div className="biosinger-search w-196 mx-auto mt-36">
     <Outlet />
   </div>
 }
