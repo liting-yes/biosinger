@@ -29,7 +29,7 @@ function SearchSp2000() {
       message.error(msg)
       return
     }
-    const list: { value: string; label: string }[] = (data as QueryNameByKeywordData).names?.map(name => ({ label: name.name_c, value: name.nameCode })) ?? []
+    const list: { value: string; label: string }[] = (data as QueryNameByKeywordData).names?.filter(name => name.rank === 'Species' || name.rank === 'Isnfraspecies')?.map(name => ({ label: name.name_c, value: name.nameCode })) ?? []
 
     if (list.length)
       setOptions(list)
@@ -46,7 +46,7 @@ function SearchSp2000() {
 
   return <div className="search-sp2000 flex flex-col items-center">
     <AutoComplete className="w-full" options={options} allowClear onSearch={onSearch} onSelect={onSelect}>
-      <Input value={keyword} size="large" placeholder="请输入搜索关键词" prefix={ loading ? <Spin className="flex justify-center items-center" size="small"></Spin> : <SearchOutlined className="text-xl text-slate-400 flex justify-center items-center" />} suffix={ <Button shape="circle" size="small" type="ghost" icon={<SettingOutlined />} onClick={() => setOpen(true)} />} onChange={e => setkeyword(e.target.value)} />
+      <Input value={keyword} size="large" placeholder="请输入动植物种关键词" prefix={ loading ? <Spin className="flex justify-center items-center" size="small"></Spin> : <SearchOutlined className="text-xl text-slate-400 flex justify-center items-center" />} suffix={ <Button shape="circle" size="small" type="ghost" icon={<SettingOutlined />} onClick={() => setOpen(true)} />} onChange={e => setkeyword(e.target.value)} />
     </AutoComplete>
     <ApikeyInputModal tooltip="搜索需要携带key，详情请查看 http://www.sp2000.org.cn/api/document" />
   </div>
