@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { AutoComplete, Input, message } from 'antd'
+import { AutoComplete, Input, Spin, message } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import { useDebounceFn } from 'ahooks'
 import { useNavigate } from 'react-router-dom'
@@ -18,8 +18,12 @@ function SearchSp2000() {
 
   const [options, setOptions] = useState<{ value: string; label: string }[]>([])
 
+  const [loading, setLoading] = useState(false)
+
   const { run: onSearch } = useDebounceFn(async () => {
+    setLoading(true)
     const res = await queryNameByKeyword({ keyword, apiKey: apikey! })
+    setLoading(false)
     const { code, data, message: msg } = res.data as QuerySp2000Response
     if (code !== 200) {
       message.error(msg)
@@ -40,7 +44,7 @@ function SearchSp2000() {
 
   return <div className="search-sp2000 flex flex-col items-center">
     <AutoComplete className="w-full" options={options} allowClear onSearch={onSearch} onSelect={onSelect}>
-      <Input value={keyword} size="large" prefix={<SearchOutlined className="text-xl text-slate-400 flex justify-center items-center" />} onChange={e => setkeyword(e.target.value)} />
+      <Input value={keyword} size="large" prefix={ loading ? <Spin className="flex justify-center items-center" size="small"></Spin> : <SearchOutlined className="text-xl text-slate-400 flex justify-center items-center" />} onChange={e => setkeyword(e.target.value)} />
     </AutoComplete>
     <ApikeyInputModal tooltip="搜索需要携带key，详情请查看 http://www.sp2000.org.cn/api/document" />
   </div>
