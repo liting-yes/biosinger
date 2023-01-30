@@ -39,6 +39,8 @@ function SearchSp2000() {
 
   const navigate = useNavigate()
   const onSelect = (value: string) => {
+    if (value === 'null')
+      return
     navigate(`/info/${value}`)
   }
 
