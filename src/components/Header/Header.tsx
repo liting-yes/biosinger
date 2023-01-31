@@ -21,10 +21,10 @@ function Header() {
     navigate(path)
   }
 
-  return <header className="biosinger-header fixed w-full h-16 bg-white/50 shadow backdrop-blur px-4 flex flex-row justify-between items-center">
+  return <header className="biosinger-header fixed w-full h-16 bg-white/1 shadow backdrop-blur px-4 flex flex-row justify-between items-center">
     <div>
       <Link to="/">
-        <img className="w-12 h-12" src={Logo} />
+        <img className="w-10 h-10" src={Logo} />
       </Link>
     </div>
     <div className="flex flex-row items-center gap-4">

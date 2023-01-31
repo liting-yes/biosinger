@@ -16,6 +16,7 @@
     "ahooks": "^3.7.4",
     "axios": "^1.2.5",
     "canvas-nest.js": "^2.0.4",
+    "rc-texty": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.7.0"
