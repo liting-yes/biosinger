@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom'
 
 function Search() {
   return (
-    <div className="biosinger-search w-196 mx-auto mt-36">
+    <div className="biosinger-search w-196 mx-auto pt-36">
       <Outlet />
     </div>
   )
