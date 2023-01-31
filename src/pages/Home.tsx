@@ -3,7 +3,7 @@ import 'rc-texty/assets/index.css'
 
 function Home() {
   return (
-    <div className="biosinger-home h-full pt-64  bg-gradient-to-tr  from-[#a6c0fe] to-[#f68084] flex justify-center">
+    <div className="biosinger-home h-full  bg-gradient-to-tr  from-[#a6c0fe] to-[#f68084] flex justify-center items-center">
       <Texty className="inline-block text-8xl text-white">Bio Singer</Texty>
     </div>
   )
