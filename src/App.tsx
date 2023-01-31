@@ -9,15 +9,14 @@ import Info from './pages/Info'
 function App() {
   return (
     <div className="biosinger w-full min-w-256 h-screen">
-      <BiosingerHeader></BiosingerHeader>
+      <BiosingerHeader />
       <main className="h-full">
         <Routes>
-          <Route index path="/" element={<Home />}></Route>
-          <Route path="search" element={<Search />}>
-            <Route path="sp2000" element={< SearchSp2000 />}></Route>
+          <Route index path="/" element={ <Home /> } />
+          <Route path="search" element={ <Search /> }>
+            <Route path="sp2000" element={ <SearchSp2000 /> } />
           </Route>
-          <Route path="info/:nameCode" element={<Info />}>
-          </Route>
+          <Route path="info/:nameCode" element={ <Info /> } />
         </Routes>
       </main>
     </div>

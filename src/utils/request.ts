@@ -1,5 +1,5 @@
-import Axios from 'axios'
 import type { AxiosInstance, AxiosRequestConfig } from 'axios'
+import Axios from 'axios'
 
 Axios.defaults.timeout = 15 * 1000
 Axios.defaults.validateStatus = (status) => {

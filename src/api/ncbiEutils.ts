@@ -1,6 +1,6 @@
+import type { UseAxiosOptions } from '../utils'
 import Axios from 'axios'
 import { request } from '../utils'
-import type { UseAxiosOptions } from '../utils'
 
 const instance = Axios.create({
   baseURL: 'https://api.liting.ink/proxy/ncbi/eutils',

@@ -1,3 +1,4 @@
+import type { QueryNameByKeywordData, QuerySp2000Response } from '../../api'
 import { useEffect, useState } from 'react'
 import { AutoComplete, Button, Input, Spin, message } from 'antd'
 import { SearchOutlined, SettingOutlined } from '@ant-design/icons'
@@ -5,7 +6,6 @@ import { useDebounceFn } from 'ahooks'
 import { useNavigate } from 'react-router-dom'
 import { useApikey } from '../../hooks/useApikey'
 import { queryNameByKeyword } from '../../api'
-import type { QueryNameByKeywordData, QuerySp2000Response } from '../../api'
 
 function SearchSp2000() {
   const { apikey, ApikeyInputModal, open, setOpen } = useApikey('sp2000')
@@ -44,12 +44,33 @@ function SearchSp2000() {
     navigate(`/info/${value}`)
   }
 
-  return <div className="search-sp2000 flex flex-col items-center">
-    <AutoComplete className="w-full" options={options} allowClear onSearch={onSearch} onSelect={onSelect}>
-      <Input value={keyword} size="large" placeholder="请输入动植物种关键词" prefix={ loading ? <Spin className="flex justify-center items-center" size="small"></Spin> : <SearchOutlined className="text-xl text-slate-400 flex justify-center items-center" />} suffix={ <Button shape="circle" size="small" type="ghost" icon={<SettingOutlined />} onClick={() => setOpen(true)} />} onChange={e => setkeyword(e.target.value)} />
-    </AutoComplete>
-    <ApikeyInputModal tooltip="搜索需要携带key，详情请查看 http://www.sp2000.org.cn/api/document" />
-  </div>
+  return (
+    <div className="search-sp2000 flex flex-col items-center">
+      <AutoComplete
+        className="w-full"
+        options={ options }
+        allowClear
+        onSearch={ onSearch }
+        onSelect={ onSelect }
+      >
+        <Input
+          value={ keyword }
+          size="large"
+          placeholder="请输入动植物种关键词"
+          prefix={ loading ? <Spin className="flex justify-center items-center" size="small" /> : <SearchOutlined className="text-xl text-slate-400 flex justify-center items-center" /> }
+          suffix={ <Button
+            shape="circle"
+            size="small"
+            type="ghost"
+            icon={ <SettingOutlined /> }
+            onClick={ () => setOpen(true) }
+          /> }
+          onChange={ e => setkeyword(e.target.value) }
+        />
+      </AutoComplete>
+      <ApikeyInputModal tooltip="搜索需要携带key，详情请查看 http://www.sp2000.org.cn/api/document" />
+    </div>
+  )
 }
 
 export default SearchSp2000

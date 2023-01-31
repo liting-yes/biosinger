@@ -1,10 +1,10 @@
+import type { QuerySp2000Response, QuerySpeciesByNameCodeData } from '../api'
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { useDebounceEffect } from 'ahooks'
 import { Card, Collapse, Skeleton, message, theme } from 'antd'
 import { CaretRightOutlined } from '@ant-design/icons'
 import { querySpeciesByNameCode } from '../api'
-import type { QuerySp2000Response, QuerySpeciesByNameCodeData } from '../api'
 import { useApikey } from '../hooks/useApikey'
 
 function Info() {
@@ -37,36 +37,40 @@ function Info() {
     border: 'none',
   }
 
-  return <div className="biosinger-info">
-    <div className="biosinger-info__main  pt-8 w-4/5 max-w-7xl mx-auto">
-      <Card title={info?.chineseName}>
-        <Skeleton paragraph={{ rows: 10 }} loading={loading} >
-          <p>学名：{info?.scientificName}</p>
-          { info?.CommonNames.length ? <p>俗名：{info?.CommonNames?.join(' / ')}</p> : null}
-          { info?.Distribution ? <p>分布地区：{info?.Distribution}</p> : null }
-          <p>界：{info?.taxonTree.kingdom}</p>
-          <p>门：{info?.taxonTree.phylum}</p>
-          <p>纲：{info?.taxonTree.class}</p>
-          <p>目：{info?.taxonTree.order}</p>
-          <p>科：{info?.taxonTree.family}</p>
-          <p>属：{info?.taxonTree.genus}</p>
-          <p>种：{info?.taxonTree.species}</p>
-          {info?.taxonTree.infraspecies ? <p>种下：{info?.taxonTree.infraspecies}</p> : null}
-          <Collapse
-            bordered={false}
-            expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
-            style={{ background: token.colorBgContainer }}
-          >
-          { info?.Refs.length
-            ? <Panel header="参考文献" key="1" style={panelStyle}>
-              {info.Refs.map(item => <p key={Object.entries(item)[0].join(' ')}>{Object.entries(item)[0].join(' ')}</p>)}
-            </Panel>
-            : null}
-          </Collapse>
-        </Skeleton>
-      </Card>
+  return (
+    <div className="biosinger-info">
+      <div className="biosinger-info__main  pt-8 w-4/5 max-w-7xl mx-auto">
+        <Card title={ info?.chineseName }>
+          <Skeleton paragraph={{ rows: 10 }} loading={ loading } >
+            <p>学名：{info?.scientificName}</p>
+            { info?.CommonNames.length ? <p>俗名：{info?.CommonNames?.join(' / ')}</p> : null}
+            { info?.Distribution ? <p>分布地区：{info?.Distribution}</p> : null }
+            <p>界：{info?.taxonTree.kingdom}</p>
+            <p>门：{info?.taxonTree.phylum}</p>
+            <p>纲：{info?.taxonTree.class}</p>
+            <p>目：{info?.taxonTree.order}</p>
+            <p>科：{info?.taxonTree.family}</p>
+            <p>属：{info?.taxonTree.genus}</p>
+            <p>种：{info?.taxonTree.species}</p>
+            {info?.taxonTree.infraspecies ? <p>种下：{info?.taxonTree.infraspecies}</p> : null}
+            <Collapse
+              bordered={ false }
+              expandIcon={ ({ isActive }) => <CaretRightOutlined rotate={ isActive ? 90 : 0 } /> }
+              style={{ background: token.colorBgContainer }}
+            >
+              { info?.Refs.length
+                && (
+                <Panel header="参考文献" key="1" style={ panelStyle }>
+                  {info.Refs.map(item => <p key={ Object.entries(item)[0].join(' ') }>{Object.entries(item)[0].join(' ')}</p>)}
+                </Panel>
+                )
+              }
+            </Collapse>
+          </Skeleton>
+        </Card>
+      </div>
     </div>
-  </div>
+  )
 }
 
 export default Info

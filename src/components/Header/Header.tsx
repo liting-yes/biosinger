@@ -1,5 +1,5 @@
-import { Menu } from 'antd'
 import type { MenuProps } from 'antd'
+import { Menu } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import { Link, useNavigate } from 'react-router-dom'
 import Logo from '../../assets/icons/logo.svg'
@@ -21,19 +21,27 @@ function Header() {
     navigate(path)
   }
 
-  return <header className="biosinger-header fixed w-full h-16 bg-white/1 shadow backdrop-blur px-4 flex flex-row justify-between items-center">
-    <div>
-      <Link to="/">
-        <img className="w-10 h-10" src={Logo} />
-      </Link>
-    </div>
-    <div className="flex flex-row items-center gap-4">
-      <Menu mode="horizontal" items={items} onClick={handleClickMenu} selectable={false} style={{ border: 'none', background: 'transparent' }} />
-     <a href="https://github.com/liting-yes/biosinger.git" target="_blank" rel="noreferrer">
-      <div className="i-mdi:github w-8 h-8 bg-slate-900"/>
-     </a>
-    </div>
-  </header>
+  return (
+    <header className="biosinger-header fixed w-full h-16 bg-white/1 shadow backdrop-blur px-4 flex flex-row justify-between items-center">
+      <div>
+        <Link to="/">
+          <img className="w-10 h-10" src={ Logo } alt="logo" />
+        </Link>
+      </div>
+      <div className="flex flex-row items-center gap-4">
+        <Menu
+          mode="horizontal"
+          items={ items }
+          onClick={ handleClickMenu }
+          selectable={ false }
+          style={{ border: 'none', background: 'transparent' }}
+        />
+        <a href="https://github.com/liting-yes/biosinger.git" target="_blank" rel="noreferrer">
+          <div className="i-mdi:github w-8 h-8 bg-slate-900" />
+        </a>
+      </div>
+    </header>
+  )
 }
 
 export default Header
