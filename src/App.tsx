@@ -18,7 +18,7 @@ function App() {
   }, [pathname])
 
   return (
-    <div className={ `biosinger w-full min-w-256 h-screen transition-colors bg-gradient-to-tr ${bgColor}` }>
+    <div className={ `biosinger w-full min-w-256 h-screen overflow-auto transition-colors bg-gradient-to-tr ${bgColor}` }>
       <BiosingerHeader />
       <main className="h-full">
         <Routes>
