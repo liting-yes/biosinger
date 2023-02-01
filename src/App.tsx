@@ -3,8 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import BiosingerHeader from './components/Header/Header'
 import Home from './pages/Home'
-import Search from './pages/Search/Search'
-import SearchSp2000 from './pages/Search/SearchSp2000'
+import Search from './pages/Search'
 import Info from './pages/Info'
 
 function App() {
@@ -24,9 +23,7 @@ function App() {
       <main className="h-full">
         <Routes>
           <Route index path="/" element={ <Home /> } />
-          <Route path="search" element={ <Search /> }>
-            <Route path="sp2000" element={ <SearchSp2000 /> } />
-          </Route>
+          <Route path="search" element={ <Search /> } />
           <Route path="info/:nameCode" element={ <Info /> } />
         </Routes>
       </main>

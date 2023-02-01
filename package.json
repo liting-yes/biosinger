@@ -13,6 +13,7 @@
     "postinstall": "husky install"
   },
   "dependencies": {
+    "@ant-design/pro-components": "^2.3.52",
     "ahooks": "^3.7.4",
     "axios": "^1.2.5",
     "canvas-nest.js": "^2.0.4",

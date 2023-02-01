@@ -62,7 +62,7 @@ export interface QuerySpeciesByNameCodeData {
   SpecialistInfo: { name: string; Institution: string; 'E-Mail': string; Address: string }[]
 }
 
-export const queryNameByKeyword = (params: { keyword: string; apiKey: string }) => {
+export const queryNameByKeyword = (params: { keyword: string; apiKey?: string; page?: number }) => {
   return request_({ url: '/v2/getNameByKeyword', params })
 }
 export interface QueryNameByKeywordDataName {
