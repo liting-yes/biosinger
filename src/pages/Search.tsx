@@ -1,7 +1,7 @@
 import type { ApiResponse, QueryNameByKeywordData, QueryNameByKeywordDataName } from '../api'
 import { Button, Card, Input, List, Select, Tag, message } from 'antd'
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDebounceFn, useLocalStorageState } from 'ahooks'
 import { queryNameByKeyword } from '../api'
 
@@ -23,14 +23,7 @@ function Search() {
   }
 
   const [keyWord, setKeyWord] = useState('')
-  const [data, setData] = useState<unknown>()
   const [listSource, setListSource] = useState<any[]>([])
-  useEffect(() => {
-    if (!data)
-      return
-    if (selectedApi.key === 'sp2000')
-      setListSource((data as QueryNameByKeywordData).names)
-  }, [data])
   const [loading, setLoading] = useState(false)
   const { run: triggerSearch } = useDebounceFn(async () => {
     let res: any
@@ -43,7 +36,10 @@ function Search() {
       message.error(msg)
       return
     }
-    setData(data)
+    if (!data)
+      return
+    if (selectedApi.key === 'sp2000')
+      setListSource((data as QueryNameByKeywordData).names)
   })
 
   return (
