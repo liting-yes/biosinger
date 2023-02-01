@@ -1,6 +1,6 @@
 import type { ApiResponse, QueryNameByKeywordData, QueryNameByKeywordDataName } from '../api'
-import { Button, Card, Input, List, Select, Tag, message } from 'antd'
-import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons'
+import { Button, Card, Divider, Input, List, Modal, Select, Tag, Typography, message } from 'antd'
+import { EyeInvisibleOutlined, EyeTwoTone, QuestionCircleOutlined } from '@ant-design/icons'
 import { useState } from 'react'
 import { useDebounceFn, useLocalStorageState } from 'ahooks'
 import { queryNameByKeyword } from '../api'
@@ -42,6 +42,9 @@ function Search() {
       setListSource((data as QueryNameByKeywordData).names)
   })
 
+  const [visible, setVisible] = useState(false)
+  const { Title, Paragraph, Link } = Typography
+
   return (
     <div className="biosinger-search w-256 mx-auto py-28">
       <div className="px-4 py-2 flex justify-between  bg-gradient-to-tr from-[#e0c3fc]/50 to-[#8ec5fc]/50 backdrop-blur rounded-xl">
@@ -67,6 +70,29 @@ function Search() {
               value={ sp2000Key }
               onChange={ e => setSp2000Key(e.target.value) }
             />
+            <QuestionCircleOutlined className="w-4 h-4" onClick={ () => setVisible(true) } />
+            <Modal
+              open={ visible }
+              focusTriggerAfterClose={ false }
+              okText="知道了"
+              onCancel={ () => setVisible(false) }
+              footer={ <Button type="primary" onClick={ () => setVisible(false) }>知道了</Button> }
+            >
+              <Typography>
+                <Title className="text-3xl!">Key值介绍</Title>
+                <Paragraph>
+                  通常调用公共API都需要一个 Key 来鉴定请求者身份，以防止API被恶意请求
+                </Paragraph>
+                <Divider >
+                  <span>本站点涉及以下Key</span>
+                </Divider>
+                <Title className="text-xl!">SP2000</Title>
+                <Paragraph>
+                  物种2000中国节点是国际物种2000项目的一个地区节点，2006年2月7日由国际物种2000秘书处提议成立，于2006年10月20日正式启动。中国科学院生物多样性委员会（BC-CAS），与其合作伙伴一起，支持和管理物种2000中国节点的建设，在线数据库提供了中国已知的动物，植物，真菌和微生物的信息。
+                  其 API Key 相关信息请查看：<Link href="http://www.sp2000.org.cn/api/document" target="_blank">API服务说明</Link>
+                </Paragraph>
+              </Typography>
+            </Modal>
           </div>
         </div>
         <div className="flex justify-end items-center">
