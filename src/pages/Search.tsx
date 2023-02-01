@@ -55,11 +55,12 @@ function Search() {
           </div>
           <div className="flex items-center gap-2">
             <span>关键词:</span>
-            <Input
+            <Input.Search
               className="w-56"
               value={ keyWord }
               onChange={ e => setKeyWord(e.target.value) }
               onPressEnter={ triggerSearch }
+              loading={ loading }
             />
           </div>
           <div className="flex items-center gap-2">
