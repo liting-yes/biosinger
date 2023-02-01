@@ -43,7 +43,7 @@ function Search() {
   })
 
   return (
-    <div className="biosinger-search w-256 mx-auto pt-28">
+    <div className="biosinger-search w-256 mx-auto py-28">
       <div className="px-4 py-2 flex justify-between  bg-gradient-to-tr from-[#e0c3fc]/50 to-[#8ec5fc]/50 backdrop-blur rounded-xl">
         <div className="flex gap-8">
           <div className="flex items-center gap-2">
