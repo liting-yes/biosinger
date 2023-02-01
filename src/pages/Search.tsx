@@ -81,15 +81,15 @@ function Search() {
               <Typography>
                 <Title className="text-3xl!">Key值介绍</Title>
                 <Paragraph>
-                  通常调用公共API都需要一个 Key 来鉴定请求者身份，以防止API被恶意请求
+                  调用公共API常需要一个 API Key 来鉴别请求者身份，以防止API被恶意请求
                 </Paragraph>
                 <Divider >
                   <span>本站点涉及以下Key</span>
                 </Divider>
                 <Title className="text-xl!">SP2000</Title>
                 <Paragraph>
-                  物种2000中国节点是国际物种2000项目的一个地区节点，2006年2月7日由国际物种2000秘书处提议成立，于2006年10月20日正式启动。中国科学院生物多样性委员会（BC-CAS），与其合作伙伴一起，支持和管理物种2000中国节点的建设，在线数据库提供了中国已知的动物，植物，真菌和微生物的信息。
-                  其 API Key 相关信息请查看：<Link href="http://www.sp2000.org.cn/api/document" target="_blank">API服务说明</Link>
+                  物种2000中国节点是国际物种2000项目的一个地区节点，2006年2月7日由国际物种2000秘书处提议成立，于2006年10月20日正式启动。中国科学院生物多样性委员会（BC-CAS），与其合作伙伴一起，支持和管理物种2000中国节点的建设，其在线数据库提供了中国已知的动物，植物，真菌和微生物的信息。
+                  API Key 相关信息请查看：<Link href="http://www.sp2000.org.cn/api/document" target="_blank">API服务说明</Link>
                 </Paragraph>
               </Typography>
             </Modal>
