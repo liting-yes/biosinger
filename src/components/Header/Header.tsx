@@ -21,7 +21,7 @@ function Header() {
   }
 
   return (
-    <header className="biosinger-header fixed w-full h-16 bg-white/1 shadow backdrop-blur px-4 flex flex-row justify-between items-center">
+    <header className="biosinger-header fixed z-99 w-full h-16 bg-white/1 shadow backdrop-blur px-4 flex flex-row justify-between items-center">
       <div>
         <Link to="/">
           <img className="w-10 h-10" src={ Logo } alt="logo" />
@@ -32,13 +32,6 @@ function Header() {
           <SearchOutlined />
           <span>搜索</span>
         </Link>
-        {/* <Menu
-          mode="horizontal"
-          items={ items }
-          onClick={ handleClickMenu }
-          selectable={ false }
-          style={{ border: 'none', background: 'transparent' }}
-        /> */}
         <a href="https://github.com/liting-yes/biosinger.git" target="_blank" rel="noreferrer">
           <div className="i-mdi:github w-8 h-8 bg-slate-900" />
         </a>
