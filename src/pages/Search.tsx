@@ -3,6 +3,7 @@ import { Button, Card, Divider, Input, List, Modal, Select, Tag, Typography, mes
 import { EyeInvisibleOutlined, EyeTwoTone, QuestionCircleOutlined } from '@ant-design/icons'
 import { useState } from 'react'
 import { useDebounceFn, useLocalStorageState } from 'ahooks'
+import { Link } from 'react-router-dom'
 import { queryNameByKeyword } from '../api'
 
 function Search() {
@@ -43,7 +44,7 @@ function Search() {
   })
 
   const [visible, setVisible] = useState(false)
-  const { Title, Paragraph, Link } = Typography
+  const { Title, Paragraph } = Typography
 
   return (
     <div className="biosinger-search w-256 mx-auto py-28">
@@ -90,7 +91,7 @@ function Search() {
                 <Title className="text-xl!">SP2000</Title>
                 <Paragraph>
                   物种2000中国节点是国际物种2000项目的一个地区节点，2006年2月7日由国际物种2000秘书处提议成立，于2006年10月20日正式启动。中国科学院生物多样性委员会（BC-CAS），与其合作伙伴一起，支持和管理物种2000中国节点的建设，其在线数据库提供了中国已知的动物，植物，真菌和微生物的信息。
-                  API Key 相关信息请查看：<Link href="http://www.sp2000.org.cn/api/document" target="_blank">API服务说明</Link>
+                  API Key 相关信息请查看：<Typography.Link href="http://www.sp2000.org.cn/api/document" target="_blank">API服务说明</Typography.Link>
                 </Paragraph>
               </Typography>
             </Modal>
@@ -111,37 +112,44 @@ function Search() {
         dataSource={ listSource }
         bordered={ true }
         grid={{ column: 2, gutter: -64 }}
-        rowKey={ (item) => {
+        rowKey={ (item: QueryNameByKeywordDataName) => {
           if (selectedApi.key === 'sp2000')
-            return (item as QueryNameByKeywordDataName).nameCode
+            return item.nameCode
           return ''
         } }
-        renderItem ={ (item) => {
+        renderItem ={ (item: QueryNameByKeywordDataName) => {
           if (selectedApi.key === 'sp2000') {
+            const getCardExtra = (item: QueryNameByKeywordDataName) => {
+              if (item.rank === 'Species' || item.rank === 'Infraspecies')
+                return <Link to={ `/info/${item.nameCode}` } >详细信息</Link>
+              return null
+            }
+
             return (
               <Card
                 className="m-4"
                 title={ (
                   <div className="flex items-center gap-2">
-                    <span>{(item as QueryNameByKeywordDataName).name_c}</span>
-                    <Tag color="#8ec5fc">{(item as QueryNameByKeywordDataName).rank}</Tag>
-                    <Tag color="#e0c3fc">{(item as QueryNameByKeywordDataName).taxongroup}</Tag>
+                    <span>{item.name_c}</span>
+                    <Tag color="#8ec5fc">{item.rank}</Tag>
+                    <Tag color="#e0c3fc">{item.taxongroup}</Tag>
                   </div>
                 ) }
                 bordered={ false }
                 hoverable={ true }
+                extra={ getCardExtra(item) }
               >
                 <div>
                   <span className="inline-block w-20 font-medium text-slate-700">学名: </span>
-                  <span className="break-all flex-1 text-slate-600">{(item as QueryNameByKeywordDataName).name}</span>
+                  <span className="break-all flex-1 text-slate-600">{item.name}</span>
                 </div>
                 <div>
                   <span className="inline-block w-20 font-medium text-slate-700">中文拼音: </span>
-                  <span className="break-all flex-1 text-slate-600">{(item as QueryNameByKeywordDataName).name_py}</span>
+                  <span className="break-all flex-1 text-slate-600">{item.name_py}</span>
                 </div>
                 <div className="flex">
                   <span className="inline-block w-20 font-medium text-slate-700">分类等级: </span>
-                  <span className="break-all flex-1 text-slate-600">{(item as QueryNameByKeywordDataName).hierarchyCode}</span>
+                  <span className="break-all flex-1 text-slate-600">{item.hierarchyCode}</span>
                 </div>
               </Card>
             )
