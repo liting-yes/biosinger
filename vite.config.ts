@@ -8,11 +8,6 @@ export default defineConfig({
     react(),
   ],
   css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: '@import "./src/assets/styles/mixins.scss";',
-      },
-    },
     devSourcemap: true,
   },
   server: {

@@ -1,5 +1,0 @@
-@mixin prefix ($name) {
-  .biosinger-#{$name} {
-    @content;
-  }
-}
