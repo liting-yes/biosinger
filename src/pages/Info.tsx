@@ -39,7 +39,7 @@ function Info() {
 
   return (
     <div className="biosinger-info">
-      <div className="biosinger-info__main  pt-28 w-4/5 max-w-7xl mx-auto">
+      <div className="biosinger-info__main mx-auto max-w-7xl w-4/5 pt-28">
         <Card title={ info?.chineseName }>
           <Skeleton paragraph={{ rows: 10 }} loading={ loading } >
             <p>学名：{info?.scientificName}</p>

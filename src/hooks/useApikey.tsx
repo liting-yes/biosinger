@@ -35,7 +35,7 @@ export function useApikey(name: string) {
             { tooltip
             && (
             <Tooltip placement="right" color="gold" title={ tooltip }>
-              <QuestionCircleOutlined className="text-sm ml-1" />
+              <QuestionCircleOutlined className="ml-1 text-sm" />
             </Tooltip>
             )
             }

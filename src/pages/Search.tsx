@@ -47,8 +47,8 @@ function Search() {
   const { Title, Paragraph } = Typography
 
   return (
-    <div className="biosinger-search w-256 mx-auto py-28">
-      <div className="px-4 py-2 flex justify-between  bg-gradient-to-tr from-[#e0c3fc]/50 to-[#8ec5fc]/50 backdrop-blur rounded-xl">
+    <div className="biosinger-search mx-auto w-256 py-28">
+      <div className="flex justify-between rounded-xl from-[#e0c3fc]/50 to-[#8ec5fc]/50 bg-gradient-to-tr px-4 py-2 backdrop-blur">
         <div className="flex gap-8">
           <div className="flex items-center gap-2">
             <span>数据库:</span>
@@ -72,7 +72,7 @@ function Search() {
               value={ sp2000Key }
               onChange={ e => setSp2000Key(e.target.value) }
             />
-            <QuestionCircleOutlined className="w-4 h-4" onClick={ () => setVisible(true) } />
+            <QuestionCircleOutlined className="h-4 w-4" onClick={ () => setVisible(true) } />
             <Modal
               open={ visible }
               focusTriggerAfterClose={ false }
@@ -97,7 +97,7 @@ function Search() {
             </Modal>
           </div>
         </div>
-        <div className="flex justify-end items-center">
+        <div className="flex items-center justify-end">
           <Button
             type="primary"
             size="small"
@@ -108,7 +108,7 @@ function Search() {
         </div>
       </div>
       <List
-        className="mt-12 p-4 bg-gradient-to-tr from-[#e0c3fc]/50 to-[#8ec5fc]/50 backdrop-blur rounded-xl"
+        className="mt-12 rounded-xl from-[#e0c3fc]/50 to-[#8ec5fc]/50 bg-gradient-to-tr p-4 backdrop-blur"
         dataSource={ listSource }
         bordered={ true }
         grid={{ column: 2, gutter: -64 }}
@@ -141,15 +141,15 @@ function Search() {
               >
                 <div>
                   <span className="inline-block w-20 font-medium text-slate-700">学名: </span>
-                  <span className="break-all flex-1 text-slate-600">{item.name}</span>
+                  <span className="flex-1 break-all text-slate-600">{item.name}</span>
                 </div>
                 <div>
                   <span className="inline-block w-20 font-medium text-slate-700">中文拼音: </span>
-                  <span className="break-all flex-1 text-slate-600">{item.name_py}</span>
+                  <span className="flex-1 break-all text-slate-600">{item.name_py}</span>
                 </div>
                 <div className="flex">
                   <span className="inline-block w-20 font-medium text-slate-700">分类等级: </span>
-                  <span className="break-all flex-1 text-slate-600">{item.hierarchyCode}</span>
+                  <span className="flex-1 break-all text-slate-600">{item.hierarchyCode}</span>
                 </div>
               </Card>
             )

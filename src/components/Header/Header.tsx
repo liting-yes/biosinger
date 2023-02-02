@@ -1,40 +1,23 @@
-import type { MenuProps } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Logo from '../../assets/icons/logo.svg'
 import './Header.scss'
 
-const items: MenuProps['items'] = [{
-  label: '搜索',
-  key: 'search',
-  icon: <SearchOutlined />,
-  children: [{
-    label: '物种2000中国节点',
-    key: 'sp2000',
-  }],
-}]
-
 function Header() {
-  const navigate = useNavigate()
-  const handleClickMenu: MenuProps['onClick'] = (e) => {
-    const path = `/${e.keyPath[1]}/${e.keyPath[0]}`
-    navigate(path)
-  }
-
   return (
-    <header className="biosinger-header fixed z-99 w-full h-16 bg-white/1 shadow backdrop-blur px-4 flex flex-row justify-between items-center">
+    <header className="biosinger-header fixed z-99 h-16 w-full flex flex-row items-center justify-between bg-white/1 px-4 shadow backdrop-blur">
       <div>
         <Link to="/">
-          <img className="w-10 h-10" src={ Logo } alt="logo" />
+          <img className="h-10 w-10" src={ Logo } alt="logo" />
         </Link>
       </div>
       <div className="flex flex-row items-center gap-4 font-medium">
-        <Link className="biosinger-header__nav-item py-2 flex justify-center items-center gap-1 no-underline text-slate-800" to="/search">
+        <Link className="biosinger-header__nav-item flex items-center justify-center gap-1 py-2 text-slate-800 no-underline" to="/search">
           <SearchOutlined />
           <span>搜索</span>
         </Link>
         <a href="https://github.com/liting-yes/biosinger.git" target="_blank" rel="noreferrer">
-          <div className="i-mdi:github w-8 h-8 bg-slate-900" />
+          <div className="i-mdi:github h-8 w-8 bg-slate-900" />
         </a>
       </div>
     </header>
