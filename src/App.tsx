@@ -13,12 +13,14 @@ function App() {
   const [bgColor, setBgColor] = useState('')
   useEffect(() => {
     if (pathname.startsWith('/search'))
-      setBgColor('from-[#f5f7fa] to-[#c3cfe2]')
+      setBgColor('from-[#c2e9fb] to-[#a1c4fd]')
     else if (pathname.startsWith('/ncbi'))
       setBgColor('from-[#fad0c4] to-[#ff9a9e]')
     else
       setBgColor('from-[#a6c0fe] to-[#f68084]')
   }, [pathname])
+
+  // background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 
   return (
     <div className={ `biosinger w-full min-w-256 h-screen overflow-auto transition-colors bg-gradient-to-tr ${bgColor}` }>

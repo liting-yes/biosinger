@@ -48,7 +48,7 @@ function Search() {
 
   return (
     <div className="biosinger-search mx-auto w-256 py-28">
-      <div className="flex justify-between rounded-xl from-[#e0c3fc]/50 to-[#8ec5fc]/50 bg-gradient-to-tr px-4 py-2 backdrop-blur">
+      <div className="flex justify-between rounded-xl from-[#4facfe]/30 to-[#00f2fe]/30 bg-gradient-to-tr px-4 py-2 shadow-lg backdrop-blur">
         <div className="flex gap-8">
           <div className="flex items-center gap-2">
             <span>数据库:</span>
@@ -108,9 +108,8 @@ function Search() {
         </div>
       </div>
       <List
-        className="mt-12 rounded-xl from-[#e0c3fc]/50 to-[#8ec5fc]/50 bg-gradient-to-tr p-4 backdrop-blur"
+        className="mt-12 rounded-xl from-[#4facfe]/20 to-[#00f2fe]/20 bg-gradient-to-tr p-4 backdrop-blur"
         dataSource={ listSource }
-        bordered={ true }
         grid={{ column: 2, gutter: -64 }}
         rowKey={ (item: QueryNameByKeywordDataName) => {
           if (selectedApi.key === 'sp2000')
