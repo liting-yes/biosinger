@@ -5,6 +5,7 @@ import BiosingerHeader from './components/Header/Header'
 import Home from './pages/Home'
 import Search from './pages/Search'
 import Info from './pages/Info'
+import Ncbi from './pages/Ncbi'
 
 function App() {
   const pathname = useLocation().pathname
@@ -13,6 +14,8 @@ function App() {
   useEffect(() => {
     if (pathname.startsWith('/search'))
       setBgColor('from-[#f5f7fa] to-[#c3cfe2]')
+    else if (pathname.startsWith('/ncbi'))
+      setBgColor('from-[#fad0c4] to-[#ff9a9e]')
     else
       setBgColor('from-[#a6c0fe] to-[#f68084]')
   }, [pathname])
@@ -24,6 +27,7 @@ function App() {
         <Routes>
           <Route index path="/" element={ <Home /> } />
           <Route path="search" element={ <Search /> } />
+          <Route path="ncbi" element={ <Ncbi /> } />
           <Route path="info/:nameCode" element={ <Info /> } />
         </Routes>
       </main>

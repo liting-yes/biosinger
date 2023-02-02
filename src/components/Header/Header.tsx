@@ -1,4 +1,4 @@
-import { SearchOutlined } from '@ant-design/icons'
+import { DatabaseOutlined, SearchOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import Logo from '../../assets/icons/logo.svg'
 import './Header.scss'
@@ -15,6 +15,10 @@ function Header() {
         <Link className="biosinger-header__nav-item flex items-center justify-center gap-1 py-2 text-slate-800 no-underline" to="/search">
           <SearchOutlined />
           <span>搜索</span>
+        </Link>
+        <Link className="biosinger-header__nav-item flex items-center justify-center gap-1 py-2 text-slate-800 no-underline" to="/ncbi">
+          <DatabaseOutlined />
+          <span>NCBI</span>
         </Link>
         <a href="https://github.com/liting-yes/biosinger.git" target="_blank" rel="noreferrer">
           <div className="i-mdi:github h-8 w-8 bg-slate-900" />
