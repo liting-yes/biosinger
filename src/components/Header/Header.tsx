@@ -2,6 +2,7 @@ import type { MenuProps } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import { Link, useNavigate } from 'react-router-dom'
 import Logo from '../../assets/icons/logo.svg'
+import './Header.scss'
 
 const items: MenuProps['items'] = [{
   label: '搜索',
@@ -28,7 +29,7 @@ function Header() {
         </Link>
       </div>
       <div className="flex flex-row items-center gap-4 font-medium">
-        <Link className="flex justify-center items-center gap-1 no-underline text-slate-800" to="/search">
+        <Link className="biosinger-header__nav-item py-2 flex justify-center items-center gap-1 no-underline text-slate-800" to="/search">
           <SearchOutlined />
           <span>搜索</span>
         </Link>
