@@ -2,11 +2,13 @@ import type { ApiResponse, QueryNameByKeywordData, QueryNameByKeywordDataName } 
 import { Button, Card, Divider, Input, List, Modal, Select, Tag, Typography, message } from 'antd'
 import { EyeInvisibleOutlined, EyeTwoTone, QuestionCircleOutlined } from '@ant-design/icons'
 import { useState } from 'react'
-import { useDebounceFn, useLocalStorageState } from 'ahooks'
-import { Link } from 'react-router-dom'
+import { useDebounceEffect, useDebounceFn, useLocalStorageState } from 'ahooks'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { queryNameByKeyword } from '../api'
 
 function Search() {
+  const [searchParams, setSearchParams] = useSearchParams()
+
   const [sp2000Key, setSp2000Key] = useLocalStorageState<string | undefined>('biosinger_apikey_sp2000', {
     defaultValue: '',
   })
@@ -17,16 +19,18 @@ function Search() {
     apiKey: sp2000Key,
     setApiKey: setSp2000Key,
   }]
-  const [selectedApi, setSelectedApi] = useState(searchApiMap[0])
+  const [selectedApi, setSelectedApi] = useState(searchApiMap.find(item => item.key === searchParams.get('db')) ?? searchApiMap[0])
   const onSelectChange = (value: string) => {
     const nextSelectedApi = searchApiMap.find(item => item.key === value)
     setSelectedApi(nextSelectedApi!)
+    setSearchParams({ db: nextSelectedApi!.key, keyword: keyWord })
   }
 
-  const [keyWord, setKeyWord] = useState('')
+  const [keyWord, setKeyWord] = useState(searchParams.get('keyword') ?? '')
   const [listSource, setListSource] = useState<any[]>([])
   const [loading, setLoading] = useState(false)
   const { run: triggerSearch } = useDebounceFn(async () => {
+    setSearchParams({ db: selectedApi!.key, keyword: keyWord })
     let res: any
     setLoading(true)
     if (selectedApi.key === 'sp2000')
@@ -42,6 +46,11 @@ function Search() {
     if (selectedApi.key === 'sp2000')
       setListSource((data as QueryNameByKeywordData).names)
   })
+
+  const navigate = useNavigate()
+  useDebounceEffect(() => {
+    navigate(`/search?db=${selectedApi.key}&keyword=${keyWord}`)
+  }, [selectedApi, keyWord])
 
   const [visible, setVisible] = useState(false)
   const { Title, Paragraph } = Typography
