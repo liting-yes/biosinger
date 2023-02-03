@@ -148,7 +148,7 @@ function Search() {
                 </div>
                 <div className="flex">
                   <span className="inline-block w-20 font-medium text-slate-700">分类等级: </span>
-                  <span className="flex-1 break-all text-slate-600">{item.hierarchyCode}</span>
+                  <span className="flex-1 break-all text-slate-600">{item.hierarchyCode.split('_').join(' -> ')}</span>
                 </div>
               </Card>
             )
