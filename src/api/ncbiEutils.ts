@@ -12,10 +12,8 @@ const request_ = (options: UseAxiosOptions) => {
   })
 }
 
-export interface CallNcbiEutilsResponse {
-  code: number
-  message: string
-  data: any
+export const callNcbiEutilsEinfo = (params?: { db?: string; version?: string; retmode?: string }) => {
+  return request_({ url: '/einfo', params })
 }
 
 export const callNcbiEutilsEsearch = (params: {

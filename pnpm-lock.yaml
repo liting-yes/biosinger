@@ -27,6 +27,7 @@ specifiers:
   eslint: ^8.32.0
   husky: ^8.0.3
   inquirer: '8'
+  jotai: ^2.0.0
   lint-staged: ^13.1.0
   rc-texty: ^0.2.0
   react: ^18.2.0
@@ -45,6 +46,7 @@ dependencies:
   ahooks: 3.7.4_react@18.2.0
   axios: 1.2.5
   canvas-nest.js: 2.0.4
+  jotai: 2.0.0_react@18.2.0
   rc-texty: 0.2.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -5676,6 +5678,18 @@ packages:
     resolution: {integrity: sha512-OKBOVWmU3FxDt/UH4zSwiKPuc1nihFZiOD722FuJlngvLz2glX1v2/TJIgoA4+mrpnXxHV6dSAoCvPcYQtoG5A==}
     hasBin: true
     dev: true
+
+  /jotai/2.0.0_react@18.2.0:
+    resolution: {integrity: sha512-04G0CRZQgp3xrFAezd6X14psZ2TRGekHeYMBcbDJ/BR8ZJQPS+j0YkMTxUxyG58HJnN2+adfj5sWQWoqgtp1XQ==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      react: '>=17.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /js-cookie/2.2.1:
     resolution: {integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==}
