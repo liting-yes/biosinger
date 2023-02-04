@@ -120,6 +120,7 @@ function Search() {
               onChange={ e => setKeyWord(e.target.value) }
               onPressEnter={ triggerSearch }
               loading={ loading }
+              onSearch={ triggerSearch }
             />
           </div>
           <div className="flex items-center gap-2">
