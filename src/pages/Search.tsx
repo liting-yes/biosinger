@@ -1,10 +1,10 @@
-import type { ApiResponse, QueryNameByKeywordData, QueryNameByKeywordDataName } from '../api'
+import type { ApiResponse, QueryNameByKeywordData, QueryNameByKeywordDataName, QuerySpeciesByScientificNameDataSpecie } from '../api'
 import { Button, Card, Divider, Input, List, Modal, Select, Tag, Typography, message } from 'antd'
 import { EyeInvisibleOutlined, EyeTwoTone, QuestionCircleOutlined } from '@ant-design/icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDebounceEffect, useDebounceFn, useLocalStorageState } from 'ahooks'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
-import { queryNameByKeyword } from '../api'
+import { queryNameByKeyword, querySpeciesByScientificName } from '../api'
 
 function Search() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -54,6 +54,50 @@ function Search() {
 
   const [visible, setVisible] = useState(false)
   const { Title, Paragraph } = Typography
+
+  const [genusModalVisivle, setGenusModelVisible] = useState(false)
+  const [searchScientificName, setSearchScientificName] = useState('')
+  const [speciesList, setSepciesList] = useState<QuerySpeciesByScientificNameDataSpecie[]>([])
+  const [page, setPage] = useState(1)
+  const [limit, setLimit] = useState(20)
+  const [count, setCount] = useState(0)
+  const [hasMore, setHasMore] = useState(false)
+  const [loadingSearchScientificName, setLoadingSearchScientificName] = useState(false)
+  useEffect(() => {
+    setHasMore(page * limit < count)
+  }, [limit, count, page])
+  const { run: onClickAtGenus } = useDebounceFn(async (scientificName: string) => {
+    scientificName && setSearchScientificName(scientificName)
+    if (!scientificName)
+      return
+    setLoadingSearchScientificName(true)
+    const res = await querySpeciesByScientificName({ scientificName: scientificName ?? searchScientificName, page, apiKey: selectedApi.apiKey! })
+    setLoadingSearchScientificName(false)
+    const { data, code, message: msg } = res?.data as ApiResponse
+    if (code !== 200) {
+      message.error(msg)
+      return
+    }
+    if (!data || data.count === 0) {
+      message.info('查无数据')
+      return
+    }
+    if (selectedApi.key === 'sp2000') {
+      setPage(data.page)
+      setLimit(data.limit)
+      setCount(data.count)
+      if (page === 1)
+        setSepciesList(data.species)
+      else
+        setSepciesList([...speciesList, ...data.species])
+    }
+
+    setGenusModelVisible(true)
+  })
+  const { run: onClickLoadingMore } = useDebounceFn(() => {
+    setPage(page + 1)
+    onClickAtGenus(searchScientificName)
+  })
 
   return (
     <div className="biosinger-search mx-auto w-256 py-28">
@@ -130,6 +174,8 @@ function Search() {
             const getCardExtra = (item: QueryNameByKeywordDataName) => {
               if (item.rank === 'Species' || item.rank === 'Infraspecies')
                 return <Link to={ `/info/${item.nameCode}` } >详细信息</Link>
+              else if (item.rank === 'Genus')
+                return <Button className="p-0" type="ghost" onClick={ () => onClickAtGenus(item.name) } >相关种列表</Button>
               return null
             }
 
@@ -166,10 +212,54 @@ function Search() {
           return 'null'
         } }
       />
+      <Modal
+        open={ genusModalVisivle }
+        focusTriggerAfterClose={ false }
+        closable={ false }
+        onCancel={ () => setGenusModelVisible(false) }
+        footer={ hasMore ? <Button type="primary" onClick={ onClickLoadingMore } loading={ loadingSearchScientificName }>加载更多</Button> : null }
+      >
+        <List
+          dataSource={ speciesList }
+          grid={{ column: 1 }}
+          rowKey={ (item: any) => {
+            return item.nameCode
+          } }
+          renderItem ={ (item: QuerySpeciesByScientificNameDataSpecie) => {
+            return (
+              <Card
+                className="m-4"
+                title={ <span>{item.accepted_name_info.chineseName}</span> }
+                bordered={ false }
+                hoverable={ true }
+                extra={ <Link to={ `/info/${item.accepted_name_info.namecode}` } >详细信息</Link> }
+              >
+                <div>
+                  <span className="inline-block w-20 font-medium text-slate-700">学名: </span>
+                  <span className="flex-1 break-all text-slate-600">{item.scientific_name}</span>
+                </div>
+                {
+                  item.accepted_name_info.CommonNames?.length
+                    ? (
+                      <div>
+                        <span className="inline-block w-20 font-medium text-slate-700">俗名: </span>
+                        <span className="flex-1 break-all text-slate-600">{item.accepted_name_info.CommonNames.join(' | ')}</span>
+                      </div>
+                      )
+                    : null
+                }
+
+                <div className="flex">
+                  <span className="inline-block w-20 font-medium text-slate-700">分类地区: </span>
+                  <span className="flex-1 break-all text-slate-600">{item.accepted_name_info.Distribution}</span>
+                </div>
+              </Card>
+            )
+          } }
+        />
+      </Modal>
     </div>
   )
 }
 
 export default Search
-
-// background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
