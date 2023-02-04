@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Search from './pages/Search'
 import Info from './pages/Info'
 import Ncbi from './pages/ncbi/Ncbi'
+import NcbiIndex from './pages/ncbi/Index'
 import NcbiEinfo from './pages/ncbi/Einfo'
 import NcbiEsearch from './pages/ncbi/Esearch'
 
@@ -32,6 +33,7 @@ function App() {
           <Route index path="/" element={ <Home /> } />
           <Route path="search" element={ <Search /> } />
           <Route path="ncbi" element={ <Ncbi /> }>
+            <Route path="/ncbi/index" index element = { <NcbiIndex /> } />
             <Route path="einfo" element = { <NcbiEinfo /> } />
             <Route path="esearch" element={ <NcbiEsearch /> } />
           </Route>

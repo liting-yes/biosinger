@@ -16,7 +16,7 @@ function Header() {
           <SearchOutlined />
           <span>搜索</span>
         </Link>
-        <Link className="biosinger-header__nav-item flex items-center justify-center gap-1 py-2 text-slate-800 no-underline" to="/ncbi">
+        <Link className="biosinger-header__nav-item flex items-center justify-center gap-1 py-2 text-slate-800 no-underline" to="/ncbi/index">
           <DatabaseOutlined />
           <span>NCBI</span>
         </Link>
