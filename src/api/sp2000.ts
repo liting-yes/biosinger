@@ -40,7 +40,7 @@ export const querySpeciesByFamilyId = (params: { familyId: string; page: number;
 export type QuerySpeciesByFamilyIdDataSpeciesSynonyms = { synonym: string; refs: { [key: string]: string }[] }[]
 
 export interface QuerySpeciesByFamilyIdDataSpecie {
-  Synonyms: QuerySpeciesByScientificNameDataSpeciesSynonyms
+  Synonyms: QuerySpeciesByFamilyIdDataSpeciesSynonyms
   databases: string
   namecode: string
   scientificName: string
