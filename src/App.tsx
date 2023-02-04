@@ -5,7 +5,9 @@ import BiosingerHeader from './components/Header/Header'
 import Home from './pages/Home'
 import Search from './pages/Search'
 import Info from './pages/Info'
-import Ncbi from './pages/Ncbi'
+import Ncbi from './pages/ncbi/Ncbi'
+import NcbiEinfo from './pages/ncbi/Einfo'
+import NcbiEsearch from './pages/ncbi/Esearch'
 
 function App() {
   const pathname = useLocation().pathname
@@ -29,7 +31,10 @@ function App() {
         <Routes>
           <Route index path="/" element={ <Home /> } />
           <Route path="search" element={ <Search /> } />
-          <Route path="ncbi" element={ <Ncbi /> } />
+          <Route path="ncbi" element={ <Ncbi /> }>
+            <Route path="einfo" element = { <NcbiEinfo /> } />
+            <Route path="esearch" element={ <NcbiEsearch /> } />
+          </Route>
           <Route path="info/:nameCode" element={ <Info /> } />
         </Routes>
       </main>
