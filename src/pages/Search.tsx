@@ -53,7 +53,7 @@ function Search() {
   }, [selectedApi, keyWord])
 
   const [visible, setVisible] = useState(false)
-  const { Title, Paragraph } = Typography
+  const { Title, Paragraph, Text } = Typography
 
   const [genusModalVisivle, setGenusModelVisible] = useState(false)
   const [searchScientificName, setSearchScientificName] = useState('')
@@ -195,7 +195,7 @@ function Search() {
               >
                 <div>
                   <span className="inline-block w-20 font-medium text-slate-700">学名: </span>
-                  <span className="flex-1 break-all text-slate-600">{item.name}</span>
+                  <Text className="flex-1 break-all text-slate-600" copyable>{item.name}</Text>
                 </div>
                 <div>
                   <span className="inline-block w-20 font-medium text-slate-700">中文拼音: </span>
@@ -236,7 +236,7 @@ function Search() {
               >
                 <div>
                   <span className="inline-block w-20 font-medium text-slate-700">学名: </span>
-                  <span className="flex-1 break-all text-slate-600">{item.scientific_name}</span>
+                  <Text className="flex-1 break-all text-slate-600" copyable>{item.scientific_name}</Text>
                 </div>
                 {
                   item.accepted_name_info.CommonNames?.length
