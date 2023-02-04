@@ -2,7 +2,7 @@ import type { ApiResponse, QueryNameByKeywordData, QueryNameByKeywordDataName, Q
 import { Button, Card, Divider, Input, List, Modal, Select, Tag, Typography, message } from 'antd'
 import { EyeInvisibleOutlined, EyeTwoTone, QuestionCircleOutlined } from '@ant-design/icons'
 import { useEffect, useState } from 'react'
-import { useDebounceEffect, useDebounceFn, useLocalStorageState } from 'ahooks'
+import { useDebounceEffect, useDebounceFn, useLocalStorageState, useMount } from 'ahooks'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { queryNameByKeyword, querySpeciesByScientificName } from '../api'
 
@@ -97,6 +97,11 @@ function Search() {
   const { run: onClickLoadingMore } = useDebounceFn(() => {
     setPage(page + 1)
     onClickAtGenus(searchScientificName)
+  })
+
+  useMount(() => {
+    if (keyWord && selectedApi.apiKey)
+      triggerSearch()
   })
 
   return (
