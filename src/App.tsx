@@ -23,8 +23,6 @@ function App() {
       setBgColor('from-[#a6c0fe] to-[#f68084]')
   }, [pathname])
 
-  // background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-
   return (
     <div className={ `biosinger w-full min-w-256 h-screen overflow-auto transition-colors bg-gradient-to-tr ${bgColor}` }>
       <BiosingerHeader />

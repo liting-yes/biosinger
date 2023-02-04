@@ -10,5 +10,3 @@ function Home() {
 }
 
 export default Home
-
-// background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
