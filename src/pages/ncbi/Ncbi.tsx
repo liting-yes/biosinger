@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 import { useMount } from 'ahooks'
 import { message } from 'antd'
 import { useAtom } from 'jotai'
@@ -27,11 +27,19 @@ function Ncbi() {
     setDbList(res.data.einforesult.dblist)
   })
 
+  // const [active, setActive] = useState('')
+  const location = useLocation()
+  // useEffect(() => {
+  //   sidebar.forEach(item => {
+  //     if (location.pathname === 'path')
+  //   })
+  // }, [location])
+
   return (
     <div className="biosinger-ncbi mx-auto w-256 flex gap-8 py-28">
-      <ul className="sticky top-29 h-min w-24 list-none overflow-hidden rounded bg-[#ff9a9e] p-0 shadow">
+      <ul className="sticky top-29 h-min w-32 list-none overflow-hidden rounded bg-[#ff9a9e] p-0 shadow">
         {sidebar.map((item) => {
-          return <li className="h-8 transition-colors hover:bg-[#fad0c4]" key={ item.key }><Link className="inline-block h-full w-full pl-4 leading-8 text-white no-underline" to={ item.path }>{item.label}</Link></li>
+          return <li className={ `h-8 transition-colors hover:bg-[#fad0c4] ${item.path === location.pathname ? 'bg-red-400' : ''}` } key={ item.key }><Link className="inline-block h-full w-full pl-4 leading-8 text-white no-underline" to={ item.path }>{item.label}</Link></li>
         })}
       </ul>
       <div className="flex-1">
