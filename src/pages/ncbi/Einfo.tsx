@@ -19,7 +19,7 @@ function NcbiEinfo() {
     newState.sort((a, b) => (a.dbname < b.dbname ? -1 : 1))
     return newState
   }, [])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [requestList, setRequestList] = useState<Array<Promise<void>>>([])
 
   if (dbList.length && !requestList.length) {
@@ -44,19 +44,21 @@ function NcbiEinfo() {
       <Title className="ml-4">Ncbi EInfo</Title>
       <Text className="mb-4 ml-4 inline-block">NCBI数据库基本信息</Text>
       <Skeleton
+        className="ml-4"
         loading={ loading }
         active
         title
         round
         paragraph={{ rows: 8 }}
       />
-      <List
-        dataSource={ dbInfo }
-        grid={{ column: 2, gutter: -64 }}
-        rowKey={ (item: DbinfoItem) => {
-          return item.dbname
-        } }
-        renderItem = {
+      { dbInfo.length
+        ? <List
+            dataSource={ dbInfo }
+            grid={{ column: 2, gutter: -64 }}
+            rowKey={ (item: DbinfoItem) => {
+              return item.dbname
+            } }
+            renderItem = {
           (item: DbinfoItem) => {
             return (
               <Card
@@ -83,7 +85,8 @@ function NcbiEinfo() {
             )
           }
         }
-      />
+        />
+        : null}
     </div>
   )
 }
