@@ -16,6 +16,29 @@ export const callNcbiEutilsEinfo = (params?: { db?: string; version?: string; re
   return request_({ url: '/einfo', params })
 }
 
+export interface EInfo {
+  header: {
+    type: string
+    version: string
+  }
+  einforesult: {
+    dbinfo: Dbinfo
+  }
+}
+
+export type Dbinfo = DbinfoItem[]
+
+export interface DbinfoItem {
+  dbname: string
+  menuname: string
+  description: string
+  dbbuild: string
+  count: string
+  lastupdate: string
+  fieldlist: Array<object>
+  linklist: Array<object>
+}
+
 export const callNcbiEutilsEsearch = (params: {
   db: string
   term: string
