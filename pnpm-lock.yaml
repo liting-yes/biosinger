@@ -28,6 +28,7 @@ specifiers:
   husky: ^8.0.3
   inquirer: '8'
   jotai: ^2.0.0
+  jotai-devtools: ^0.2.0
   lint-staged: ^13.1.0
   rc-texty: ^0.2.0
   react: ^18.2.0
@@ -74,6 +75,7 @@ devDependencies:
   eslint: 8.32.0
   husky: 8.0.3
   inquirer: 8.2.5
+  jotai-devtools: 0.2.0_jotai@2.0.0+react@18.2.0
   lint-staged: 13.1.0
   sass: 1.57.1
   terser: 5.16.2
@@ -2343,6 +2345,15 @@ packages:
       rc-util: 5.27.1_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+
+  /@redux-devtools/extension/3.2.5:
+    resolution: {integrity: sha512-UhyDF7WmdnCrN1s++YC4sdQCo0z6YUnoB2eCh15nXDDq3QH1jDju1144UNRU6Nvi4inxhaIum4m9BXVYWVC1ng==}
+    peerDependencies:
+      redux: ^3.1.0 || ^4.0.0
+    dependencies:
+      '@babel/runtime': 7.20.7
+      immutable: 4.2.2
+    dev: true
 
   /@remix-run/router/1.3.0:
     resolution: {integrity: sha512-nwQoYb3m4DDpHTeOwpJEuDt8lWVcujhYYSFGLluC+9es2PyLjm+jjq3IeRBQbwBtPLJE/lkuHuGHr8uQLgmJRA==}
@@ -5679,6 +5690,20 @@ packages:
     hasBin: true
     dev: true
 
+  /jotai-devtools/0.2.0_jotai@2.0.0+react@18.2.0:
+    resolution: {integrity: sha512-LAvCOBB+SUdbq4Kr4cex8rOS18FCxUvwTXhVXQZX5qv6jY07rF+qikQISuniEmAbcPH4J/4GqwjWCZsGn3Tprw==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      jotai: '>=1.11.0'
+      react: '>=17.0.0'
+    dependencies:
+      '@redux-devtools/extension': 3.2.5
+      jotai: 2.0.0_react@18.2.0
+      react: 18.2.0
+    transitivePeerDependencies:
+      - redux
+    dev: true
+
   /jotai/2.0.0_react@18.2.0:
     resolution: {integrity: sha512-04G0CRZQgp3xrFAezd6X14psZ2TRGekHeYMBcbDJ/BR8ZJQPS+j0YkMTxUxyG58HJnN2+adfj5sWQWoqgtp1XQ==}
     engines: {node: '>=12.20.0'}
@@ -5689,7 +5714,6 @@ packages:
         optional: true
     dependencies:
       react: 18.2.0
-    dev: false
 
   /js-cookie/2.2.1:
     resolution: {integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==}

@@ -46,6 +46,7 @@
     "eslint": "^8.32.0",
     "husky": "^8.0.3",
     "inquirer": "8",
+    "jotai-devtools": "^0.2.0",
     "lint-staged": "^13.1.0",
     "sass": "^1.57.1",
     "terser": "^5.16.2",

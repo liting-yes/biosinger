@@ -1,9 +1,11 @@
+import type { EInfo } from '../../api'
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import { useMount } from 'ahooks'
 import { message } from 'antd'
-import { useAtom } from 'jotai'
+import { useStore } from 'jotai'
+import { useState } from 'react'
+import { useDeepCompareEffect } from 'ahooks'
 import { callNcbiEutilsEinfo } from '../../api'
-import { dbListStore } from '../../stores/ncbi'
+import { dbInfoAtom } from '../../stores/ncbi'
 
 const sidebar: { key: string; path: string; label: string }[] = [
   {
@@ -18,22 +20,31 @@ const sidebar: { key: string; path: string; label: string }[] = [
 ]
 
 function Ncbi() {
-  const [_, setDbList] = useAtom(dbListStore)
+  const store = useStore()
+  const [dbList, setDbList] = useState<string[]>([])
+  if (!dbList.length) {
+    callNcbiEutilsEinfo({ retmode: 'json' }).then((res) => {
+      if (res.status !== 200)
+        message.error(res.statusText)
+      else
+        setDbList(res.data.einforesult.dblist)
+    })
+  }
+  useDeepCompareEffect(() => {
+    if (!dbList.length)
+      return
+    store.set(dbInfoAtom, {})
+    dbList.forEach((db) => {
+      callNcbiEutilsEinfo({ db, retmode: 'json' }).then((res) => {
+        if (res.status !== 200)
+          message.error(`获取数据库【${db}】信息失败：${res.data.message}`)
+        else
+          store.set(dbInfoAtom, { ...store.get(dbInfoAtom), ...{ [db]: (res.data as EInfo).einforesult.dbinfo[0] } })
+      })
+    })
+  }, [dbList])
 
-  useMount(async () => {
-    const res = await callNcbiEutilsEinfo({ retmode: 'json' })
-    if (res.status !== 200)
-      message.error(res.statusText)
-    setDbList(res.data.einforesult.dblist)
-  })
-
-  // const [active, setActive] = useState('')
   const location = useLocation()
-  // useEffect(() => {
-  //   sidebar.forEach(item => {
-  //     if (location.pathname === 'path')
-  //   })
-  // }, [location])
 
   return (
     <div className="biosinger-ncbi mx-auto w-256 flex gap-8 py-28">

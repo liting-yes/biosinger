@@ -26,7 +26,26 @@ export interface EInfo {
   }
 }
 
-export type Dbinfo = DbinfoItem[]
+export interface DbinfoItemFieldlistItem {
+  name: string
+  fullname: string
+  description: string
+  termcount: number
+  isdate: 'Y' | 'N'
+  isnumerical: 'Y' | 'N'
+  singletoken: 'Y' | 'N'
+  hierarchy: 'Y' | 'N'
+  ishidden: 'Y' | 'N'
+  istruncatable: 'Y' | 'N'
+  israngable: 'Y' | 'N'
+}
+
+export interface DbinfoItemLinklistItem {
+  name: string
+  menu: string
+  description: string
+  dbto: string
+}
 
 export interface DbinfoItem {
   dbname: string
@@ -35,9 +54,11 @@ export interface DbinfoItem {
   dbbuild: string
   count: string
   lastupdate: string
-  fieldlist: Array<object>
-  linklist: Array<object>
+  fieldlist: DbinfoItemFieldlistItem[]
+  linklist: DbinfoItemLinklistItem[]
 }
+
+export type Dbinfo = DbinfoItem[]
 
 export const callNcbiEutilsEsearch = (params: {
   db: string

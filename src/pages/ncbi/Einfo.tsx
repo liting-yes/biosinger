@@ -1,43 +1,11 @@
-import type { Dbinfo, DbinfoItem, EInfo } from '../../api'
+import type { DbinfoItem } from '../../api'
 import { useAtom } from 'jotai'
-import { Card, List, Skeleton, Typography, message } from 'antd'
-import { useReducer, useState } from 'react'
-import { dbListStore } from '../../stores/ncbi'
-import { callNcbiEutilsEinfo } from '../../api'
+import { Card, List, Skeleton, Typography } from 'antd'
+import { dbInfoAtom } from '../../stores/ncbi'
 
 function NcbiEinfo() {
   const { Title, Text } = Typography
-
-  const [dbList] = useAtom(dbListStore)
-  const [dbInfo, setDbInfo] = useReducer((state: Dbinfo, action: Dbinfo) => {
-    const newDbinfo: Dbinfo = []
-    action.forEach((db) => {
-      if (!state.find(item => item.dbname === db.dbname))
-        newDbinfo.push(db)
-    })
-    const newState = [...state, ...newDbinfo]
-    newState.sort((a, b) => (a.dbname < b.dbname ? -1 : 1))
-    return newState
-  }, [])
-  const [loading, setLoading] = useState(true)
-  const [requestList, setRequestList] = useState<Array<Promise<void>>>([])
-
-  if (dbList.length && !requestList.length) {
-    dbList.forEach((db) => {
-      const request = callNcbiEutilsEinfo({ db, retmode: 'json' }).then((res) => {
-        if (res.status !== 200) {
-          message.error(`获取数据库【${db}】信息失败：res.data.message`)
-          return
-        }
-        setDbInfo((res.data as EInfo).einforesult.dbinfo)
-      })
-      setRequestList([...requestList, request])
-    })
-    setLoading(true)
-    Promise.all(requestList).then().finally(() => {
-      setLoading(false)
-    })
-  }
+  const [dbInfo] = useAtom(dbInfoAtom)
 
   return (
     <div className="ncbi-einfo">
@@ -45,15 +13,15 @@ function NcbiEinfo() {
       <Text className="mb-4 ml-4 inline-block">NCBI数据库基本信息</Text>
       <Skeleton
         className="ml-4"
-        loading={ loading }
+        loading={ !Object.keys(dbInfo).length }
         active
         title
         round
         paragraph={{ rows: 8 }}
       />
-      { dbInfo.length
+      { Object.keys(dbInfo).length
         ? <List
-            dataSource={ dbInfo }
+            dataSource={ Object.values(dbInfo) }
             grid={{ column: 2, gutter: -64 }}
             rowKey={ (item: DbinfoItem) => {
               return item.dbname
