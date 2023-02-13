@@ -1,8 +1,12 @@
-import { defineConfig } from '@unocss/vite'
-import presetUno from '@unocss/preset-uno'
-import presetIcons from '@unocss/preset-icons'
+import { defineConfig } from 'unocss/vite'
+import { presetIcons, presetUno, transformerDirectives } from 'unocss'
+import presetDaisy from 'unocss-preset-daisy'
 
 export default defineConfig({
-  presets: [presetUno(), presetIcons({})],
-
+  presets: [
+    presetUno(),
+    presetIcons(),
+    presetDaisy(),
+  ],
+  transformers: [transformerDirectives()],
 })
