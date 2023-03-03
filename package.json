@@ -5,9 +5,13 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "format": "eslint . --fix"
   },
   "devDependencies": {
+    "@liting-yes/eslint-config-vue": "^0.1.0",
+    "eslint": "^8.35.0",
     "nuxt": "^3.2.3"
   }
 }
