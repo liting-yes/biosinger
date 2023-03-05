@@ -5,7 +5,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "nuxt prepare && npx simple-git-hooks",
     "lint": "eslint .",
     "format": "eslint . --fix",
     "commit": "git-cz"
@@ -18,7 +18,9 @@
     "commitizen": "^4.3.0",
     "eslint": "^8.35.0",
     "inquirer": "8",
-    "nuxt": "^3.2.3"
+    "lint-staged": "^13.1.2",
+    "nuxt": "^3.2.3",
+    "simple-git-hooks": "^2.8.1"
   },
   "config": {
     "commitizen": {
@@ -29,5 +31,12 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
+    "commit-msg": "npx commitlint  --edit ''"
   }
 }
