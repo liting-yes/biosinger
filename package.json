@@ -14,13 +14,16 @@
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@commitlint/cz-commitlint": "^17.4.4",
+    "@element-plus/nuxt": "^1.0.3",
     "@liting-yes/eslint-config-vue": "^0.2.2",
     "@unocss/nuxt": "^0.50.3",
     "commitizen": "^4.3.0",
+    "element-plus": "^2.2.36",
     "eslint": "^8.35.0",
     "inquirer": "8",
     "lint-staged": "^13.1.2",
     "nuxt": "^3.2.3",
+    "sass": "^1.58.3",
     "simple-git-hooks": "^2.8.1"
   },
   "config": {

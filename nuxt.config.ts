@@ -1,8 +1,12 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
-  modules: [ '@unocss/nuxt' ],
-  unocss:  {
+  elementPlus: { importStyle: 'scss' },
+  modules:     [
+    '@unocss/nuxt',
+    '@element-plus/nuxt',
+  ],
+  unocss: {
     attributify: true,
     icons:       true,
     uno:         true,
