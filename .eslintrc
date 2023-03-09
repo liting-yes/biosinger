@@ -1,0 +1,6 @@
+{
+    "extends": "@liting-yes/eslint-config-vue",
+    "rules": {
+        "block-spacing": "error"
+    }
+}

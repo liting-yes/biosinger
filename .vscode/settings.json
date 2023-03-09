@@ -1,0 +1,10 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.format.enable": true,
+    "eslint.codeActionsOnSave.mode": "all",
+    "eslint.lintTask.enable": true,
+    "eslint.packageManager": "pnpm",
+    "eslint.validate": ["javascript", "typescript", "vue", "json", "markdown"]
+}
