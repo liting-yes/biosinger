@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@element-plus/nuxt',
     '@nuxt/image-edge',
     '@vueuse/nuxt',
+    '@vite-pwa/nuxt',
   ],
   unocss: {
     attributify: true,
