@@ -18,6 +18,8 @@
     "@liting-yes/eslint-config-vue": "^0.2.2",
     "@nuxt/image-edge": "1.0.0-27968280.9739e4d",
     "@unocss/nuxt": "^0.50.3",
+    "@vueuse/core": "^9.13.0",
+    "@vueuse/nuxt": "^9.13.0",
     "commitizen": "^4.3.0",
     "element-plus": "^2.2.36",
     "eslint": "^8.35.0",
