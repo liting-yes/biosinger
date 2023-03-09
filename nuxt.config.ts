@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@nuxt/image-edge',
     '@vueuse/nuxt',
     '@vite-pwa/nuxt',
+    '@nuxtjs/fontaine',
   ],
   unocss: {
     attributify: true,
