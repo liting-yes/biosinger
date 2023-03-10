@@ -1,6 +1,7 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
+  css:         [ '@unocss/reset/tailwind-compat.css' ],
   elementPlus: { importStyle: 'scss' },
   modules:     [
     '@unocss/nuxt',

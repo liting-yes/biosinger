@@ -5,10 +5,11 @@ specifiers:
   '@commitlint/config-conventional': ^17.4.4
   '@commitlint/cz-commitlint': ^17.4.4
   '@element-plus/nuxt': ^1.0.3
-  '@liting-yes/eslint-config-vue': ^0.2.2
+  '@liting-yes/eslint-config-vue': ^0.2.3
   '@nuxt/image-edge': 1.0.0-27968280.9739e4d
   '@nuxtjs/fontaine': ^0.2.4
   '@unocss/nuxt': ^0.50.3
+  '@unocss/reset': ^0.50.4
   '@vite-pwa/nuxt': ^0.0.7
   '@vueuse/core': ^9.13.0
   '@vueuse/nuxt': ^9.13.0
@@ -26,10 +27,11 @@ devDependencies:
   '@commitlint/config-conventional': 17.4.4
   '@commitlint/cz-commitlint': 17.4.4_i4x6owxztfhigiiqlxwntt4k24
   '@element-plus/nuxt': 1.0.3_element-plus@2.2.36
-  '@liting-yes/eslint-config-vue': 0.2.2_eslint@8.35.0
+  '@liting-yes/eslint-config-vue': 0.2.3_eslint@8.35.0
   '@nuxt/image-edge': 1.0.0-27968280.9739e4d
   '@nuxtjs/fontaine': 0.2.4
   '@unocss/nuxt': 0.50.3
+  '@unocss/reset': 0.50.4
   '@vite-pwa/nuxt': 0.0.7
   '@vueuse/core': 9.13.0
   '@vueuse/nuxt': 9.13.0_nuxt@3.2.3
@@ -2368,8 +2370,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@liting-yes/eslint-config-base/0.2.2_eslint@8.35.0:
-    resolution: {integrity: sha512-c2qy2MTtYg5+3xfVMfai403oUJM2S38Rrf8qBoUaeyBYLeJS0RbVOG42lqc4KFfBGvq9V0NHm2wwxnaHKS2TZQ==}
+  /@liting-yes/eslint-config-base/0.2.3_eslint@8.35.0:
+    resolution: {integrity: sha512-q9zwZhC2ulzXNTsWv/bvf80a3tB/blSPMUwowlMlO60zEp4qN3jB5nWVa3ZlqoHb3y7bElzSZjnKvZ02ERrBlQ==}
     peerDependencies:
       eslint: ^8.32.0
       tailwindcss: ^3.2.7
@@ -2394,8 +2396,8 @@ packages:
       - typescript
     dev: true
 
-  /@liting-yes/eslint-config-base/0.2.2_yiggpkcwtyhpwcphetqfqiayhm:
-    resolution: {integrity: sha512-c2qy2MTtYg5+3xfVMfai403oUJM2S38Rrf8qBoUaeyBYLeJS0RbVOG42lqc4KFfBGvq9V0NHm2wwxnaHKS2TZQ==}
+  /@liting-yes/eslint-config-base/0.2.3_yiggpkcwtyhpwcphetqfqiayhm:
+    resolution: {integrity: sha512-q9zwZhC2ulzXNTsWv/bvf80a3tB/blSPMUwowlMlO60zEp4qN3jB5nWVa3ZlqoHb3y7bElzSZjnKvZ02ERrBlQ==}
     peerDependencies:
       eslint: ^8.32.0
       tailwindcss: ^3.2.7
@@ -2420,13 +2422,13 @@ packages:
       - typescript
     dev: true
 
-  /@liting-yes/eslint-config-ts/0.2.2_eslint@8.35.0:
-    resolution: {integrity: sha512-kqnZxCHMe69XLVgf6p5h2B/B6LtSrXHk810LNq7x1BbuD51gdPqpEe03mQ9UTsynG6mQJeNxdbtjidLflYuTzA==}
+  /@liting-yes/eslint-config-ts/0.2.3_eslint@8.35.0:
+    resolution: {integrity: sha512-xou2B5k/t8/x6w+MisENnWKy4iwWbMaVHy09b816hseILYF9wQiZk27I7k5OQStlaskgGQD5AhnbhG1hF4iKKA==}
     peerDependencies:
       eslint: ^8.32.0
       typescript: ^4.9.5
     dependencies:
-      '@liting-yes/eslint-config-base': 0.2.2_yiggpkcwtyhpwcphetqfqiayhm
+      '@liting-yes/eslint-config-base': 0.2.3_yiggpkcwtyhpwcphetqfqiayhm
       '@typescript-eslint/eslint-plugin': 5.54.1_uyiasnnzcqrxqkfvjklwnmwcha
       '@typescript-eslint/parser': 5.54.1_eslint@8.35.0
       eslint: 8.35.0
@@ -2438,14 +2440,14 @@ packages:
       - tailwindcss
     dev: true
 
-  /@liting-yes/eslint-config-vue/0.2.2_eslint@8.35.0:
-    resolution: {integrity: sha512-MsZGgU/NigKDrbPNAq+WB27MM6MfhgzXUOZ5Avs52x/ctFERDE3zfWSmA+jJ8bFR8CfAmwmBz4XJgY9VizrU3Q==}
+  /@liting-yes/eslint-config-vue/0.2.3_eslint@8.35.0:
+    resolution: {integrity: sha512-lAe4k53KJLx8I6Zt7FmI2nXAlbrPr9zTR0pEprOgAncwxEnkovV66XFEe82/DFihyEWniFp5Sz1mVU3EPbO0Dg==}
     peerDependencies:
       eslint: ^8.32.0
       typescript: ^4.9.5
     dependencies:
-      '@liting-yes/eslint-config-base': 0.2.2_eslint@8.35.0
-      '@liting-yes/eslint-config-ts': 0.2.2_eslint@8.35.0
+      '@liting-yes/eslint-config-base': 0.2.3_eslint@8.35.0
+      '@liting-yes/eslint-config-ts': 0.2.3_eslint@8.35.0
       eslint: 8.35.0
       eslint-plugin-vue: 9.9.0_eslint@8.35.0
       local-pkg: 0.4.3
@@ -3498,6 +3500,10 @@ packages:
 
   /@unocss/reset/0.50.3:
     resolution: {integrity: sha512-bHzHMPHtwSFKnQOEgJDcm/TNyH7L7Mx7xIznDDp2YPTHfb+s98DpVhXxMSjopNSggB7+X8s8UskL08iSI8pjRQ==}
+    dev: true
+
+  /@unocss/reset/0.50.4:
+    resolution: {integrity: sha512-UHNDhClJMx3sG3oi68XkOcTeJ2hkI20O0eHowSoua10NClbnS9tiKxeo4ZLInouzvac3tb1TsjKEgTosHfkR/w==}
     dev: true
 
   /@unocss/scope/0.50.3:
