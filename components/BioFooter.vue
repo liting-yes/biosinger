@@ -1,6 +1,6 @@
 <template>
-  <div class="bio-footer h-full flex items-center">
-    <p class="w-full flex justify-center items-center gap-4">
+  <div class="h-full flex items-center bio-footer">
+    <p class="flex items-center w-full justify-center gap-4">
       <NuxtLink
         to="https://github.com/liting-yes/biosinger"
         target="_blank"
