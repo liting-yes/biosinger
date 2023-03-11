@@ -5,6 +5,7 @@ specifiers:
   '@commitlint/config-conventional': ^17.4.4
   '@commitlint/cz-commitlint': ^17.4.4
   '@element-plus/nuxt': ^1.0.3
+  '@iconify/json': ^2.2.33
   '@liting-yes/eslint-config-vue': ^0.2.3
   '@nuxt/image-edge': 1.0.0-27968280.9739e4d
   '@nuxtjs/fontaine': ^0.2.4
@@ -27,6 +28,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.4.4
   '@commitlint/cz-commitlint': 17.4.4_i4x6owxztfhigiiqlxwntt4k24
   '@element-plus/nuxt': 1.0.3_element-plus@2.2.36
+  '@iconify/json': 2.2.33
   '@liting-yes/eslint-config-vue': 0.2.3_eslint@8.35.0
   '@nuxt/image-edge': 1.0.0-27968280.9739e4d
   '@nuxtjs/fontaine': 0.2.4
@@ -2295,6 +2297,13 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: true
+
+  /@iconify/json/2.2.33:
+    resolution: {integrity: sha512-e5PVSGmEXWMijHi396h3hfx5hBzbCiI5AcqvGOSJIaaZyRB4pdPIHCrQ//xRBeFRw+TtATRlDJUkE2XBC05b4g==}
+    dependencies:
+      '@iconify/types': 2.0.0
+      pathe: 1.1.0
     dev: true
 
   /@iconify/types/2.0.0:

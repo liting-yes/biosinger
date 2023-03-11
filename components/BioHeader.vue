@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="bio-header h-16 drop-shadow-md flex px-4 justify-between items-center bg-[rgb(243,237,247)]">
+  <div class="bio-header drop-shadow-md flex justify-between items-center h-full">
     <NuxtLink to="/">
       <NuxtImg
         src="/logo.svg"

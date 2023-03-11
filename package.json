@@ -15,6 +15,7 @@
     "@commitlint/config-conventional": "^17.4.4",
     "@commitlint/cz-commitlint": "^17.4.4",
     "@element-plus/nuxt": "^1.0.3",
+    "@iconify/json": "^2.2.33",
     "@liting-yes/eslint-config-vue": "^0.2.3",
     "@nuxt/image-edge": "1.0.0-27968280.9739e4d",
     "@nuxtjs/fontaine": "^0.2.4",
