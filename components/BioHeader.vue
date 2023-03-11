@@ -1,37 +1,40 @@
 <script lang="ts" setup>
+import { ref } from 'vue'
+import { useLocalStorage } from '@vueuse/core'
 
-// eslint-disable-next-line no-undef
-const defaultActive = ref('')
-
-// eslint-disable-next-line no-undef
 const dialogVisible = ref(false)
 
-// eslint-disable-next-line no-undef
 const bioSp2000 = useLocalStorage('bioSp2000', '')
 </script>
 
 <template>
   <div class="bio-header drop-shadow-md flex justify-between items-center h-full">
-    <NuxtLink to="/">
+    <NuxtLink to="/search">
       <NuxtImg
         src="/logo.svg"
         width="48"
         height="48"
       />
     </NuxtLink>
-    <ElMenu :default-active="defaultActive">
-      <ElMenuItem
+    <div class="flex items-center gap-4">
+      <NuxtLink
+        class="hover:text-orange-400"
+        to="/search"
+      >
+        搜索
+      </NuxtLink>
+      <div
+        class="cursor-pointer hover:text-orange-400"
         @click="dialogVisible = true"
       >
         个人设置
-      </ElMenuItem>
-    </ElMenu>
+      </div>
+    </div>
   </div>
   <ClientOnly>
     <ElDialog
       v-model="dialogVisible"
       append-to-body
-      @close="() => (defaultActive += 'bio')"
     >
       <template #header>
         <div class="flex items-center gap-1">
