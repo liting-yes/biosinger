@@ -75,12 +75,3 @@ const bioSp2000 = useLocalStorage('bioSp2000', '')
     </ElDialog>
   </ClientOnly>
 </template>
-
-<style lang="scss" scoped>
-.bio-header {
-  --el-menu-bg-color: transparent;
-  --el-menu-border-color: transparent;
-  --el-menu-hover-bg-color: rgb(239, 233, 245);
-  --el-menu-item-height: 32px;
-}
-</style>
