@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@vite-pwa/nuxt',
     '@nuxtjs/fontaine',
-    'nuxt-lodash'
+    'nuxt-lodash',
+    '@nuxtjs/web-vitals'
   ],
   unocss: {
     attributify: true,
@@ -24,6 +25,11 @@ export default defineNuxtConfig({
       name: 'Biosinger',
       description: '山东大学（威海）文侯毕业设计',
       lang: 'zh-CN'
+    }
+  },
+  webVitals: {
+    ga: {
+      id: 'G-EGQYF8HB9S'
     }
   }
 })

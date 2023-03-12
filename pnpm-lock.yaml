@@ -9,6 +9,7 @@ specifiers:
   '@liting-yes/eslint-config-vue': ^0.3.1
   '@nuxt/image-edge': 1.0.0-27968280.9739e4d
   '@nuxtjs/fontaine': ^0.2.4
+  '@nuxtjs/web-vitals': ^0.2.2
   '@unocss/nuxt': ^0.50.3
   '@unocss/reset': ^0.50.4
   '@vite-pwa/nuxt': ^0.0.7
@@ -33,6 +34,7 @@ devDependencies:
   '@liting-yes/eslint-config-vue': 0.3.1_eslint@8.35.0
   '@nuxt/image-edge': 1.0.0-27968280.9739e4d
   '@nuxtjs/fontaine': 0.2.4
+  '@nuxtjs/web-vitals': 0.2.2
   '@unocss/nuxt': 0.50.3
   '@unocss/reset': 0.50.4
   '@vite-pwa/nuxt': 0.0.7
@@ -2788,6 +2790,19 @@ packages:
       ufo: 1.1.1
     transitivePeerDependencies:
       - encoding
+      - rollup
+      - supports-color
+    dev: true
+
+  /@nuxtjs/web-vitals/0.2.2:
+    resolution: {integrity: sha512-UfIxBJGDXYnCgchPKt3rN1Tf66gUpRtOyo8gk9V9S2VWp8Q9ylHrwTB+y6ZPW+HRIC4B+KRh+LBIHv9ELycAJQ==}
+    dependencies:
+      '@nuxt/kit': 3.2.3
+      defu: 6.1.2
+      pathe: 1.1.0
+      ufo: 1.1.1
+      web-vitals: 3.3.0
+    transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
@@ -10637,6 +10652,10 @@ packages:
   /web-streams-polyfill/3.2.1:
     resolution: {integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==}
     engines: {node: '>= 8'}
+    dev: true
+
+  /web-vitals/3.3.0:
+    resolution: {integrity: sha512-GZsEmJBNclIpViS/7QVOTr7Kbt4BgLeR7kQ5zCCtJVuiWsA+K6xTXaoEXssvl8yYFICEyNmA2Nr+vgBYTnS4bA==}
     dev: true
 
   /webidl-conversions/3.0.1:
