@@ -18,4 +18,12 @@ export default defineNuxtConfig({
     uno:         true,
     typography: true
   },
+  pwa: {
+    registerType: 'autoUpdate',
+    manifest: {
+      name: 'Biosinger',
+      description: '山东大学（威海）文侯毕业设计',
+      lang: 'zh-CN'
+    }
+  }
 })
