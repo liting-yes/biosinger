@@ -10,10 +10,12 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@vite-pwa/nuxt',
     '@nuxtjs/fontaine',
+    'nuxt-lodash'
   ],
   unocss: {
     attributify: true,
     icons:       true,
     uno:         true,
+    typography: true
   },
 })

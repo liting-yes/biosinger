@@ -3,6 +3,7 @@
         "dbaeumer.vscode-eslint",
         "vue.volar",
         "vue.vscode-typescript-vue-plugin",
-        "naumovs.color-highlight"
+        "naumovs.color-highlight",
+        "antfu.goto-alias"
     ]
 }
