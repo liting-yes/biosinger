@@ -75,6 +75,7 @@ interface GetFamiliesByFamilyNameSp2000APIReturnType {
 export const getFamiliesByFamilyNameSp2000API = (parameters: GetFamiliesByFamilyNameSp2000APIParameters) => useFetch<GetFamiliesByFamilyNameSp2000APIReturnType>(`${ prefix }/getFamiliesByFamilyName`, {
   method: 'GET',
   params: { apiKey: bioSp2000Key.value, ...parameters },
+  immediate: false
 })
 
 interface GetSpeciesByFamilyIdSp2000APIParameters {
@@ -97,6 +98,7 @@ interface GetSpeciesByFamilyIdSp2000APIReturnType {
 export const getSpeciesByFamilyIdSp2000API = (parameters: GetSpeciesByFamilyIdSp2000APIParameters) => useFetch<GetSpeciesByFamilyIdSp2000APIReturnType>(`${ prefix }/getSpeciesByFamilyId`, {
   method: 'GET',
   params: { apiKey: bioSp2000Key.value, ...parameters },
+  immediate: false
 })
 
 interface GetSpeciesByScientificNameSp2000APIParameters {
@@ -125,6 +127,7 @@ data: {
 export const getSpeciesByScientificNameIdSp2000API = (parameters: GetSpeciesByScientificNameSp2000APIParameters) => useFetch<GetSpeciesByScientificNameSp2000APIReturnType>(`${ prefix }/getSpeciesByScientificName`, {
   method: 'GET',
   params: { apiKey: bioSp2000Key.value, ...parameters },
+  immediate: false
 })
 
 interface GetSpeciesByCommonNameSp2000APIParameters {
@@ -150,6 +153,7 @@ data: {
 export const getSpeciesByCommonNameSp2000API = (parameters: GetSpeciesByCommonNameSp2000APIParameters) => useFetch<GetSpeciesByCommonNameSp2000APIReturnType>(`${ prefix }/getSpeciesByCommonName`, {
   method: 'GET',
   params: { apiKey: bioSp2000Key.value, ...parameters },
+  immediate: false
 })
 
 interface GetSpeciesByNameCodeSp2000APIParameters {
@@ -166,6 +170,7 @@ interface GetSpeciesByNameCodeSp2000APIReturnType {
 export const getSpeciesByNameCodeSp2000API = (parameters: GetSpeciesByNameCodeSp2000APIParameters) => useFetch<GetSpeciesByNameCodeSp2000APIReturnType>(`${ prefix }/getSpeciesByNameCode`, {
   method: 'GET',
   params: { apiKey: bioSp2000Key.value, ...parameters },
+  immediate: false
 })
 
 interface GetNameByKeywordSp2000APIParameters {
@@ -198,5 +203,6 @@ interface GetNameByKeywordSp2000APIReturnType {
 export const getNameByKeywordSp2000API = (parameters: GetNameByKeywordSp2000APIParameters) => useFetch<GetNameByKeywordSp2000APIReturnType>(`${ prefix }/getNameByKeyword`, {
   method: 'GET',
   params: { apiKey: bioSp2000Key.value, ...parameters },
+  immediate: false
 }
 )
