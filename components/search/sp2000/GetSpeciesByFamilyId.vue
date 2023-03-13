@@ -27,8 +27,8 @@ onClickOutside(ElInputRef, (e) => {
                         @input="onInput" @focus="visiblePopover = true">
                     </ElInput>
                 </template>
-                <div class="max-h-108" v-loading="pending">
-                    <ElScrollbar max-height="432px">
+                <div class="max-h-124" v-loading="pending">
+                    <ElScrollbar max-height="496px">
                         <div v-show="data?.data?.species?.length" class="grid grid-cols-2 gap-4 pr-4">
                             <ElCard v-for="item in data?.data?.species" :key="item.namecode" shadow="hover">
                                 <template #header>
